@@ -14,13 +14,13 @@ const services = [
     { title: "Sales development", href: "/services/alpha-lead-gen" },
     { title: "AI Performance Marketing", href: "/services/ai-automation" },
     { title: "Lead Generation 2.0", href: "/services/alpha-lead-gen" },
-    { title: "Sales enablement", href: "#" },
-    { title: "Lead nurturing", href: "#" },
-    { title: "Lead generation training", href: "#" },
-    { title: "Demand generation", href: "#" },
+    { title: "Sales enablement", href: "/services/strategy-consulting" },
+    { title: "Lead nurturing", href: "/services/multi-channel-acquisition" },
+    { title: "Lead generation training", href: "/services/strategy-consulting" },
+    { title: "Demand generation", href: "/services/multi-channel-acquisition" },
     { title: "HubSpot CRM consulting", href: "/services/crm-architecture" },
-    { title: "Deliverability consulting", href: "#" },
-    { title: "Account-based marketing", href: "#" },
+    { title: "Deliverability consulting", href: "/services/seo-geo" },
+    { title: "Account-based marketing", href: "/services/multi-channel-acquisition" },
 ];
 
 function OmnichannelCard() {
