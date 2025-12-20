@@ -38,7 +38,7 @@ export function Hero() {
     ];
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#272727]">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#272727] pt-28 lg:pt-32 pb-12">
             {/* Background Effects */}
             <Spotlight />
             <SpotlightBeam />
@@ -75,7 +75,7 @@ export function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="mb-8 mt-12"
+                    className="mb-8"
                 >
                     <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#AD8253]/10 border border-[#AD8253]/20 text-[#c3a177] text-sm font-medium">
                         <span className="w-2 h-2 rounded-full bg-[#AD8253] animate-pulse" />
