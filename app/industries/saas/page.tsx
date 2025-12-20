@@ -6,6 +6,7 @@ import Image from "next/image";
 import Lenis from "@studio-freight/lenis";
 import { Navigation } from "@/components/sections/Navigation";
 import { Footer } from "@/components/sections/Footer";
+import { BookingButton } from "@/components/booking/BookingButton";
 import {
     ChevronLeft,
     ChevronRight,
@@ -476,13 +477,12 @@ function HeroSection() {
                             landscape.
                         </p>
                         <div>
-                            <Link
-                                href="/contact"
+                            <BookingButton
+                                text="Book a consultation"
+                                variant="primary"
                                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#AD8253] text-white rounded-lg hover:bg-[#8a6842] transition-colors font-medium"
-                            >
-                                Book a consultation
-                                <ArrowRight className="w-4 h-4" />
-                            </Link>
+                                source="industry-saas-hero"
+                            />
                             <p className="text-sm text-[#6b6b6b] mt-3">* schedule a 15-30-min call with our sales executive</p>
                         </div>
                     </div>
@@ -1139,9 +1139,12 @@ function PricingSection() {
                             ))}
                         </ul>
 
-                        <button className="w-full mt-8 px-6 py-3 bg-[#AD8253] text-white rounded-lg hover:bg-[#8a6842] transition-colors font-medium">
-                            Get my custom proposal
-                        </button>
+                        <BookingButton
+                            text="Get my custom proposal"
+                            variant="primary"
+                            className="w-full mt-8 px-6 py-3 bg-[#AD8253] text-white rounded-lg hover:bg-[#8a6842] transition-colors font-medium"
+                            source="industry-saas-pricing"
+                        />
                     </div>
                 </div>
             </div>
@@ -1300,12 +1303,12 @@ function CTASection() {
                 <p className="text-gray-400 mb-8">
                     Set up a brief meeting with one of our experts to facilitate your business growth.
                 </p>
-                <Link
-                    href="/contact"
+                <BookingButton
+                    text="Schedule 30-min call"
+                    variant="primary"
                     className="inline-flex items-center gap-2 px-8 py-4 bg-[#AD8253] text-white rounded-lg hover:bg-[#c3a177] transition-colors font-medium"
-                >
-                    Schedule 30-min call
-                </Link>
+                    source="industry-saas-cta"
+                />
             </div>
         </section>
     );

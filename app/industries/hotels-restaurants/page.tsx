@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
 import { Navigation } from "@/components/sections/Navigation";
 import { Footer } from "@/components/sections/Footer";
+import { BookingButton } from "@/components/booking/BookingButton";
 import {
     ArrowLeft, ArrowRight, ChevronRight, Check, Target, TrendingUp,
     MapPin, Search, BarChart3, Zap, Star, Users, Brain, Sparkles, CheckCircle2,
@@ -120,10 +121,12 @@ function HeroSection() {
                         <p className="text-lg text-[#a1a1a1] mb-8 leading-relaxed">
                             Dominate local search, build a stellar reputation, and turn online browsers into loyal guests with our hospitality-focused digital marketing.
                         </p>
-                        <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#AD8253] to-[#c3a177] text-[#1a1a1a] font-semibold rounded-full hover:shadow-[0_0_40px_rgba(173,130,83,0.4)] transition-all">
-                            Get More Bookings
-                            <ChevronRight className="w-5 h-5" />
-                        </Link>
+                        <BookingButton
+                            text="Get More Bookings"
+                            variant="primary"
+                            size="lg"
+                            source="industry-hotels-restaurants-hero"
+                        />
                     </motion.div>
 
                     <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="glass-card p-8">
@@ -233,9 +236,12 @@ function ChallengesSection() {
                         </div>
                         <h3 className="text-xl font-bold text-white mb-4">{challenges[active].solution.title}</h3>
                         <p className="text-[#a1a1a1] mb-8 leading-relaxed">{challenges[active].solution.description}</p>
-                        <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#AD8253] to-[#c3a177] text-[#1a1a1a] font-semibold rounded-full">
-                            Get Started
-                        </Link>
+                        <BookingButton
+                            text="Get Started"
+                            variant="primary"
+                            className="bg-gradient-to-r from-[#AD8253] to-[#c3a177] text-[#1a1a1a] font-semibold rounded-full"
+                            source="industry-hotels-restaurants-challenges"
+                        />
                     </motion.div>
                 </div>
             </div>
@@ -441,10 +447,14 @@ function CTASection() {
                         <p className="text-[#a1a1a1] mb-8 max-w-2xl mx-auto">
                             Let's discuss how our hospitality marketing expertise can help you dominate local search and turn browsers into loyal guests.
                         </p>
-                        <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#AD8253] to-[#c3a177] text-[#1a1a1a] font-semibold rounded-full hover:shadow-[0_0_40px_rgba(173,130,83,0.4)] transition-all">
-                            Get Your Free Audit
-                            <ArrowRight className="w-5 h-5" />
-                        </Link>
+                        <div className="flex justify-center">
+                            <BookingButton
+                                text="Get Your Free Audit"
+                                variant="primary"
+                                size="lg"
+                                source="industry-hotels-restaurants-cta"
+                            />
+                        </div>
                     </motion.div>
                 </div>
             </div>

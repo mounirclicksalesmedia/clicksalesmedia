@@ -99,6 +99,7 @@ export default function CRMPage() {
                 title="Build the Spine of Your Sales Process"
                 description="We architect HubSpot and HighLevel environments that automate follow-ups, track deal velocity, and ensure no lead ever falls through the cracks."
                 visual={<PipelineMockup />}
+                source="service-crm-architecture-hero"
             />
 
             <ServiceProblems
@@ -124,6 +125,7 @@ export default function CRMPage() {
                             "See exactly where every deal stands, rep performance metrics, and revenue forecasts—all updated in real-time.",
                     },
                 ]}
+                source="service-crm-architecture-problems"
             />
 
             <ServiceProcessVisual
@@ -227,7 +229,7 @@ export default function CRMPage() {
                 ]}
             />
 
-            <AboutCTA />
+            <AboutCTA source="service-crm-architecture-cta" />
             <Footer />
         </main>
     );

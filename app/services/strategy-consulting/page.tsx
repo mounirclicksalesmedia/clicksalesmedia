@@ -127,8 +127,9 @@ export default function StrategyPage() {
             <ServiceHeroVisual
                 badge="Market Penetration & Strategy Consulting"
                 title="Your Fractional CMO for Explosive Growth"
-                description="High-end clients need guidance before execution. We map out your 6-12 month growth roadmap, analyze your market, and engineer your offer before a single ad is launched."
+                description="We don't just sell services. We act as your fractional CMO and Growth Team, auditing your entire funnel to find and fix the revenue leaks."
                 visual={<StrategyDeckMockup />}
+                source="service-strategy-consulting-hero"
             />
 
             <ServiceProblems
@@ -151,9 +152,10 @@ export default function StrategyPage() {
                         problem: "Your offer doesn't stand out in the market",
                         solutionTitle: "Irresistible offer engineering",
                         solutionDescription:
-                            "We help you craft an offer that solves a 'bleeding neck' problem for your market. Not just features—a reason they can't say no.",
+                            "We align your sales and marketing teams on a unified revenue goal, SLA, and tech stack.",
                     },
                 ]}
+                source="service-strategy-consulting-problems"
             />
 
             <ServiceProcessVisual
@@ -259,7 +261,7 @@ export default function StrategyPage() {
                 ]}
             />
 
-            <AboutCTA />
+            <AboutCTA source="service-strategy-consulting-cta" />
             <Footer />
         </main>
     );

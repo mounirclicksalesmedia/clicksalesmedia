@@ -146,8 +146,9 @@ export default function AnalyticsPage() {
             <ServiceHeroVisual
                 badge="Revenue Analytics & Server-Side Tracking"
                 title="Know Exactly Where Your Revenue Comes From"
-                description="We build custom dashboards and server-side tracking infrastructure to show you the exact ROI of every dollar spent—even when browsers try to block it."
+                description="Marketing without data is just guessing. We implement end-to-end revenue tracking so you know exactly which dollar drove which deal."
                 visual={<DashboardMockup />}
+                source="service-revenue-analytics-hero"
             />
 
             <ServiceProblems
@@ -170,9 +171,10 @@ export default function AnalyticsPage() {
                         problem: "Reporting takes hours of manual work",
                         solutionTitle: "Automated live dashboards",
                         solutionDescription:
-                            "Beautiful, real-time dashboards in Looker Studio that executives can actually understand. Updated automatically.",
+                            "Get a single dashboard that shows true ROI by channel, campaign, and keyword. No more spreadsheet hell.",
                     },
                 ]}
+                source="service-revenue-analytics-problems"
             />
 
             <ServiceProcessVisual
@@ -275,7 +277,7 @@ export default function AnalyticsPage() {
                 ]}
             />
 
-            <AboutCTA />
+            <AboutCTA source="service-revenue-analytics-cta" />
             <Footer />
         </main>
     );

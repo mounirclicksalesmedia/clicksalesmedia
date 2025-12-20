@@ -137,6 +137,7 @@ export default function AlphaLeadGenPage() {
                 title="Autonomous Revenue Infrastructure"
                 description="Strategic precision meets AI velocity. The first intelligent system engineered to generate qualified pipeline at scale, bridging the gap between high-level strategy and automated tactical execution."
                 visual={<AlphaEngineMockup />}
+                source="service-alpha-lead-gen-hero"
             />
 
             <ServiceProblems
@@ -168,6 +169,7 @@ export default function AlphaLeadGenPage() {
                             "We monitor funnel velocity in real-time. If a stage lags, our AI autonomously adjusts tactical inputs (messaging, ad spend) to realign with the strategic revenue goal.",
                     },
                 ]}
+                source="service-alpha-lead-gen-problems"
             />
 
             {/* Cold Email Infrastructure Section */}
@@ -371,7 +373,7 @@ export default function AlphaLeadGenPage() {
                 ]}
             />
 
-            <AboutCTA />
+            <AboutCTA source="service-alpha-lead-gen-cta" />
             <Footer />
         </main>
     );

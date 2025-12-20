@@ -5,6 +5,7 @@ import Link from "next/link";
 import Lenis from "@studio-freight/lenis";
 import { Navigation } from "@/components/sections/Navigation";
 import { Footer } from "@/components/sections/Footer";
+import { BookingButton } from "@/components/booking/BookingButton";
 import {
     ChevronLeft,
     ChevronRight,
@@ -467,14 +468,15 @@ function HeroSection() {
                             Stop relying on referrals. We build a predictable outbound engine that targets your dream clients, fills your pipeline, and helps you break into new verticals or enterprise accounts.
                         </p>
                         <div>
-                            <Link
-                                href="/contact"
-                                className="inline-flex items-center gap-2 px-6 py-3 bg-[#AD8253] text-white rounded-lg hover:bg-[#8a6842] transition-colors font-medium"
-                            >
-                                Get a growth plan
-                                <ArrowRight className="w-4 h-4" />
-                            </Link>
-                            <p className="text-sm text-[#6b6b6b] mt-3">* schedule a 15-30-min call with our agency experts</p>
+                            <div className="flex flex-col items-start gap-3">
+                                <BookingButton
+                                    text="Get a growth plan"
+                                    variant="primary"
+                                    size="lg"
+                                    source="industry-agencies-hero"
+                                />
+                                <p className="text-sm text-[#6b6b6b]">* schedule a 15-30-min call with our agency experts</p>
+                            </div>
                         </div>
                     </div>
 
@@ -918,9 +920,14 @@ function PricingSection() {
                         We build custom packages based on your agency's capacity, target market size, and growth goals.
                         Whether you need 5 meetings a month or 50, we have a plan for you.
                     </p>
-                    <Link href="/contact" className="inline-block px-8 py-4 bg-[#AD8253] text-white rounded-lg hover:bg-[#8a6842] transition-colors font-medium">
-                        Get a quote
-                    </Link>
+                    <div className="flex justify-center">
+                        <BookingButton
+                            text="Get a quote"
+                            variant="primary"
+                            size="lg"
+                            source="industry-agencies-pricing"
+                        />
+                    </div>
                 </div>
             </div>
         </section>
@@ -979,9 +986,14 @@ function NutshellSection() {
                 <h2 className="text-3xl lg:text-4xl font-bold text-white mb-12">Agency Growth in a Nutshell</h2>
                 <div className="grid lg:grid-cols-6 gap-4 text-center">
                     <div className="bg-[#1a1a1a] p-4 rounded-lg text-[#a1a1a1] col-span-2 flex items-center justify-center font-bold text-lg">Your Agency</div>
-                    <Link href="/contact" className="col-span-2 bg-[#AD8253] p-4 rounded-lg text-white font-bold flex items-center justify-center hover:bg-[#c3a177] transition-colors">
-                        Start Growth Engine
-                    </Link>
+                    <div className="col-span-2 flex items-center justify-center">
+                        <BookingButton
+                            text="Start Growth Engine"
+                            variant="primary"
+                            className="w-full h-full text-lg"
+                            source="industry-agencies-nutshell"
+                        />
+                    </div>
                     <div className="bg-[#1a1a1a] p-4 rounded-lg text-[#a1a1a1] col-span-2 flex items-center justify-center font-bold text-lg">Scalable Revenue</div>
                 </div>
             </div>
@@ -1015,12 +1027,14 @@ function CTASection() {
                 <p className="text-gray-400 mb-8">
                     Stop wondering where your next client is coming from. Let's build a machine that brings them to you.
                 </p>
-                <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 px-8 py-4 bg-[#AD8253] text-white rounded-lg hover:bg-[#c3a177] transition-colors font-medium"
-                >
-                    Book a Strategy Call
-                </Link>
+                <div className="flex justify-center">
+                    <BookingButton
+                        text="Book a Strategy Call"
+                        variant="primary"
+                        size="lg"
+                        source="industry-agencies-cta"
+                    />
+                </div>
             </div>
         </section>
     );

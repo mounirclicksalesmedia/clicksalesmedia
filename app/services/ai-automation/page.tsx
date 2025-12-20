@@ -95,15 +95,15 @@ export default function AIAutomationPage() {
                     ].map((step, i) => (
                         <div key={i} className="flex items-center gap-3">
                             <div className={`h-10 w-10 rounded-lg flex items-center justify-center text-lg ${step.status === "completed" ? "bg-[#AD8253]/20" :
-                                    step.status === "active" ? "bg-[#AD8253] animate-pulse" :
-                                        "bg-[#272727]"
+                                step.status === "active" ? "bg-[#AD8253] animate-pulse" :
+                                    "bg-[#272727]"
                                 }`}>
                                 {step.icon}
                             </div>
                             <div className="flex-1">
                                 <div className={`h-2 rounded ${step.status === "completed" ? "bg-[#AD8253]" :
-                                        step.status === "active" ? "bg-gradient-to-r from-[#AD8253] to-transparent" :
-                                            "bg-white/10"
+                                    step.status === "active" ? "bg-gradient-to-r from-[#AD8253] to-transparent" :
+                                        "bg-white/10"
                                     }`} style={{ width: step.status === "active" ? "60%" : "100%" }} />
                             </div>
                             <span className="text-xs text-[#a1a1a1]">{step.label}</span>
@@ -123,6 +123,7 @@ export default function AIAutomationPage() {
                 title="Clone Your Best Sales Rep That Works 24/7"
                 description="We build custom AI agents that converse, answer FAQs, qualify leads, and book appointments automatically. Deploy on WhatsApp, web, SMS, and more."
                 visual={<AIChatMockup />}
+                source="service-ai-automation-hero"
             />
 
             <ServiceProblems
@@ -148,6 +149,7 @@ export default function AIAutomationPage() {
                             "Leads book directly into your calendar. No back-and-forth emails. The AI finds mutual availability and confirms appointments.",
                     },
                 ]}
+                source="service-ai-automation-problems"
             />
 
             <ServiceProcessVisual
@@ -252,7 +254,7 @@ export default function AIAutomationPage() {
                 ]}
             />
 
-            <AboutCTA />
+            <AboutCTA source="service-ai-automation-cta" />
             <Footer />
         </main>
     );

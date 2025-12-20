@@ -119,6 +119,7 @@ export default function LandingPageCROPage() {
                 title="Turn Clicks Into Conversions"
                 description="Traffic is expensive. Clicks are wasted without conversion. We build dedicated, single-focus landing pages and A/B test them to squeeze maximum efficiency from every visitor."
                 visual={<LandingPageMockup />}
+                source="service-landing-page-cro-hero"
             />
 
             <ServiceProblems
@@ -144,6 +145,7 @@ export default function LandingPageCROPage() {
                             "We test headline A vs B, form length C vs D, and find the mathematically winning combination. No guessing.",
                     },
                 ]}
+                source="service-landing-page-cro-problems"
             />
 
             <ServiceProcessVisual
@@ -241,7 +243,7 @@ export default function LandingPageCROPage() {
                 ]}
             />
 
-            <AboutCTA />
+            <AboutCTA source="service-landing-page-cro-cta" />
             <Footer />
         </main>
     );

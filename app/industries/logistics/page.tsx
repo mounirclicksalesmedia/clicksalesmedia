@@ -5,6 +5,7 @@ import Link from "next/link";
 import Lenis from "@studio-freight/lenis";
 import { Navigation } from "@/components/sections/Navigation";
 import { Footer } from "@/components/sections/Footer";
+import { BookingButton } from "@/components/booking/BookingButton";
 import {
     ChevronLeft,
     ChevronRight,
@@ -466,13 +467,12 @@ function HeroSection() {
                             Stop chasing spot market scraps. We help 3PLs, Carriers, and Forwarders build direct relationships with enterprise shippers to stabilize volume and boost margins.
                         </p>
                         <div>
-                            <Link
-                                href="/contact"
-                                className="inline-flex items-center gap-2 px-6 py-3 bg-[#AD8253] text-white rounded-lg hover:bg-[#8a6842] transition-colors font-medium"
-                            >
-                                Get a Quote Plan
-                                <ArrowRight className="w-4 h-4" />
-                            </Link>
+                            <BookingButton
+                                text="Get a Quote Plan"
+                                variant="primary"
+                                className="bg-[#AD8253] text-white rounded-lg hover:bg-[#8a6842] transition-colors font-medium px-6 py-3"
+                                source="industry-logistics-hero"
+                            />
                             <p className="text-sm text-[#6b6b6b] mt-3">* schedule a 15-30-min strategy session</p>
                         </div>
                     </div>
@@ -900,9 +900,12 @@ function PricingSection() {
                     <p className="text-white mb-8">
                         We offer retainer and performance-based models depending on your fleet size and growth targets.
                     </p>
-                    <Link href="/contact" className="inline-block px-8 py-4 bg-[#AD8253] text-white rounded-lg hover:bg-[#8a6842] transition-colors font-medium">
-                        Get a Quote
-                    </Link>
+                    <BookingButton
+                        text="Get a Quote"
+                        variant="primary"
+                        className="inline-block px-8 py-4 bg-[#AD8253] text-white rounded-lg hover:bg-[#8a6842] transition-colors font-medium"
+                        source="industry-logistics-pricing"
+                    />
                 </div>
             </div>
         </section>
@@ -960,9 +963,12 @@ function NutshellSection() {
                 <h2 className="text-3xl lg:text-4xl font-bold text-white mb-12">From Empty Miles to Full Trucks</h2>
                 <div className="grid lg:grid-cols-6 gap-4 text-center">
                     <div className="bg-[#1a1a1a] p-4 rounded-lg text-[#a1a1a1] col-span-2 flex items-center justify-center font-bold text-lg">Your Fleet</div>
-                    <Link href="/contact" className="col-span-2 bg-[#AD8253] p-4 rounded-lg text-white font-bold flex items-center justify-center hover:bg-[#c3a177] transition-colors">
-                        Find Shippers
-                    </Link>
+                    <BookingButton
+                        text="Find Shippers"
+                        variant="primary"
+                        className="col-span-2 bg-[#AD8253] p-4 rounded-lg text-white font-bold flex items-center justify-center hover:bg-[#c3a177] transition-colors"
+                        source="industry-logistics-nutshell"
+                    />
                     <div className="bg-[#1a1a1a] p-4 rounded-lg text-[#a1a1a1] col-span-2 flex items-center justify-center font-bold text-lg">Consistent Revenue</div>
                 </div>
             </div>
@@ -996,12 +1002,12 @@ function CTASection() {
                 <p className="text-gray-400 mb-8">
                     Let's discuss how to secure more contract freight/shippers.
                 </p>
-                <Link
-                    href="/contact"
+                <BookingButton
+                    text="Book a Strategy Call"
+                    variant="primary"
                     className="inline-flex items-center gap-2 px-8 py-4 bg-[#AD8253] text-white rounded-lg hover:bg-[#c3a177] transition-colors font-medium"
-                >
-                    Book a Strategy Call
-                </Link>
+                    source="industry-logistics-cta"
+                />
             </div>
         </section>
     );

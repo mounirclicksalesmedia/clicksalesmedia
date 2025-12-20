@@ -142,6 +142,7 @@ export default function AdsManagementPage() {
                 title="Stop Burning Money. Start Scaling Revenue."
                 description="Most agencies set it and forget it. We obsess over your campaigns daily. Multi-platform management optimized for ROAS, not just clicks."
                 visual={<AdManagerMockup />}
+                source="service-ads-management-hero"
             />
 
             <ServiceProblems
@@ -167,6 +168,7 @@ export default function AdsManagementPage() {
                             "We aggressively manage negative keywords and audience exclusions to ensure you never pay for a bad click twice.",
                     },
                 ]}
+                source="service-ads-management-problems"
             />
 
             <ServiceProcessVisual
@@ -270,7 +272,7 @@ export default function AdsManagementPage() {
                 ]}
             />
 
-            <AboutCTA />
+            <AboutCTA source="service-ads-management-cta" />
             <Footer />
         </main>
     );

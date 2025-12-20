@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
 import { Navigation } from "@/components/sections/Navigation";
 import { Footer } from "@/components/sections/Footer";
+import { BookingButton } from "@/components/booking/BookingButton";
 import {
     ArrowLeft,
     ArrowRight,
@@ -172,13 +173,12 @@ function HeroSection() {
                             Connect with hospitals, clinics, health systems, and healthcare organizations using our
                             proven, compliance-conscious strategies that convert prospects into long-term partners.
                         </p>
-                        <Link
-                            href="/contact"
-                            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#AD8253] to-[#c3a177] text-[#1a1a1a] font-semibold rounded-full hover:shadow-[0_0_40px_rgba(173,130,83,0.4)] transition-all"
-                        >
-                            Book a Consultation
-                            <ChevronRight className="w-5 h-5" />
-                        </Link>
+                        <BookingButton
+                            text="Book a Consultation"
+                            variant="primary"
+                            size="lg"
+                            source="industry-healthcare-hero"
+                        />
                     </motion.div>
 
                     {/* Right - Hero Image */}
@@ -286,12 +286,12 @@ function ChallengesSection() {
                         <p className="text-[#a1a1a1] mb-8 leading-relaxed">
                             {challenges[activeChallenge].solution.description}
                         </p>
-                        <Link
-                            href="/contact"
-                            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#AD8253] to-[#c3a177] text-[#1a1a1a] font-semibold rounded-full hover:shadow-[0_0_30px_rgba(173,130,83,0.3)] transition-all"
-                        >
-                            Schedule a Call
-                        </Link>
+                        <BookingButton
+                            text="Schedule a Call"
+                            variant="primary"
+                            className="bg-gradient-to-r from-[#AD8253] to-[#c3a177] text-[#1a1a1a] font-semibold rounded-full"
+                            source="industry-healthcare-challenges"
+                        />
                     </motion.div>
                 </div>
             </div>
@@ -655,13 +655,14 @@ function CTASection() {
                         <p className="text-[#a1a1a1] mb-8 max-w-2xl mx-auto">
                             Let's discuss how we can help you reach more healthcare decision-makers and close more deals.
                         </p>
-                        <Link
-                            href="/contact"
-                            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#AD8253] to-[#c3a177] text-[#1a1a1a] font-semibold rounded-full hover:shadow-[0_0_40px_rgba(173,130,83,0.4)] transition-all"
-                        >
-                            Schedule a Consultation
-                            <ArrowRight className="w-5 h-5" />
-                        </Link>
+                        <div className="flex justify-center">
+                            <BookingButton
+                                text="Schedule a Consultation"
+                                variant="primary"
+                                size="lg"
+                                source="industry-healthcare-cta"
+                            />
+                        </div>
                     </motion.div>
                 </div>
             </div>

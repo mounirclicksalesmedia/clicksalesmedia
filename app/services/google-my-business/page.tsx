@@ -41,6 +41,7 @@ export default function GoogleMyBusinessPage() {
                 title="Dominate Local Search & Drive B2B Leads"
                 description="Your Google Business Profile is often the first impression potential clients get. We optimize your profile to rank #1 in local search, drive calls, and generate qualified B2B leads."
                 visual={<GoogleMyBusinessMockup />}
+                source="service-google-my-business-hero"
             />
 
             <ServiceProblems
@@ -66,6 +67,7 @@ export default function GoogleMyBusinessPage() {
                             "We completely overhaul your profile with high-quality images, compelling descriptions, accurate information, and conversion-focused CTAs.",
                     },
                 ]}
+                source="service-google-my-business-problems"
             />
 
             <ServiceProcessVisual
@@ -231,7 +233,7 @@ export default function GoogleMyBusinessPage() {
                 ]}
             />
 
-            <AboutCTA />
+            <AboutCTA source="service-google-my-business-cta" />
             <Footer />
         </main>
     );

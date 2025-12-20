@@ -2,9 +2,13 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { GlowingButton } from "@/components/ui/Buttons";
+import { BookingButton } from "@/components/booking/BookingButton";
 
-export function AboutCTA() {
+interface AboutCTAProps {
+    source?: string;
+}
+
+export function AboutCTA({ source }: AboutCTAProps) {
     return (
         <section className="relative py-20 bg-[#272727] overflow-hidden">
             {/* Animated gradient background */}
@@ -50,23 +54,12 @@ export function AboutCTA() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <GlowingButton className="whitespace-nowrap">
-                            Start Your Growth Journey
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            >
-                                <path d="M5 12h14" />
-                                <path d="m12 5 7 7-7 7" />
-                            </svg>
-                        </GlowingButton>
+                        <BookingButton
+                            text="Start Your Growth Journey"
+                            source={source}
+                            variant="primary"
+                            className="whitespace-nowrap"
+                        />
                     </div>
 
                     {/* Stats */}

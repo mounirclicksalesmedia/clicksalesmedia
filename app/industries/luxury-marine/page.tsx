@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
 import { Navigation } from "@/components/sections/Navigation";
 import { Footer } from "@/components/sections/Footer";
+import { BookingButton } from "@/components/booking/BookingButton";
 import {
     ArrowLeft, ArrowRight, ChevronRight, Check, Target, TrendingUp,
     Anchor, Search, BarChart3, Star, Shield, Users, Sparkles, CheckCircle2,
@@ -125,10 +126,12 @@ function HeroSection() {
                             Premium marketing for the world's finest yachts and marine services. We connect exceptional vessels with extraordinary buyers.
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            <Link href="/contact" className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-[#AD8253] to-[#c3a177] text-[#1a1a1a] font-semibold rounded-full hover:shadow-[0_0_60px_rgba(173,130,83,0.4)] transition-all duration-500">
-                                Begin Your Journey
-                                <ChevronRight className="w-5 h-5" />
-                            </Link>
+                            <BookingButton
+                                text="Begin Your Journey"
+                                variant="primary"
+                                size="lg"
+                                source="industry-luxury-marine-hero"
+                            />
                         </div>
                     </motion.div>
 
@@ -241,9 +244,12 @@ function ChallengesSection() {
                         </div>
                         <h3 className="text-2xl font-bold text-white mb-4">{challenges[active].solution.title}</h3>
                         <p className="text-[#a1a1a1] mb-10 leading-relaxed text-lg font-light">{challenges[active].solution.description}</p>
-                        <Link href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#AD8253] to-[#c3a177] text-[#1a1a1a] font-semibold rounded-full hover:shadow-[0_0_40px_rgba(173,130,83,0.3)] transition-all duration-500">
-                            Discuss Your Needs
-                        </Link>
+                        <BookingButton
+                            text="Discuss Your Needs"
+                            variant="primary"
+                            className="bg-gradient-to-r from-[#AD8253] to-[#c3a177] text-[#1a1a1a] font-semibold rounded-full hover:shadow-[0_0_40px_rgba(173,130,83,0.3)] transition-all duration-500"
+                            source="industry-luxury-marine-challenges"
+                        />
                     </motion.div>
                 </div>
             </div>
@@ -457,10 +463,12 @@ function CTASection() {
                         <p className="text-[#a1a1a1] mb-10 max-w-2xl mx-auto text-xl font-light leading-relaxed">
                             Let's discuss how our luxury marine expertise can connect your vessels with the world's most discerning buyers.
                         </p>
-                        <Link href="/contact" className="inline-flex items-center gap-3 px-12 py-5 bg-gradient-to-r from-[#AD8253] to-[#c3a177] text-[#1a1a1a] font-semibold rounded-full hover:shadow-[0_0_60px_rgba(173,130,83,0.4)] transition-all duration-500 text-lg">
-                            Begin Your Journey
-                            <ArrowRight className="w-6 h-6" />
-                        </Link>
+                        <BookingButton
+                            text="Begin Your Journey"
+                            variant="primary"
+                            size="lg"
+                            source="industry-luxury-marine-cta"
+                        />
                     </motion.div>
                 </div>
             </div>

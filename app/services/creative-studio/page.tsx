@@ -96,9 +96,9 @@ export default function CreativeStudioPage() {
                 ].map((ad, i) => (
                     <div key={i} className="rounded-xl border border-white/10 bg-[#1a1a1a] p-3 shadow-lg">
                         <div className={`mb-2 rounded-lg bg-gradient-to-br from-[#AD8253]/30 to-[#c3a177]/10 ${ad.ratio === "1:1" ? "aspect-square" :
-                                ad.ratio === "4:5" ? "aspect-[4/5]" :
-                                    ad.ratio === "16:9" ? "aspect-video" :
-                                        "aspect-[9/16]"
+                            ad.ratio === "4:5" ? "aspect-[4/5]" :
+                                ad.ratio === "16:9" ? "aspect-video" :
+                                    "aspect-[9/16]"
                             }`} style={{ maxHeight: "80px" }}>
                             <div className="flex h-full items-center justify-center text-xs text-[#AD8253]">
                                 {ad.ratio}
@@ -120,6 +120,7 @@ export default function CreativeStudioPage() {
                 title="Ad Creatives That Stop the Scroll"
                 description="We design ad visuals and video scripts backed by data, not just aesthetics. We make assets that stop the scroll and drive clicks."
                 visual={<AdCreativeMockup />}
+                source="service-creative-studio-hero"
             />
 
             <ServiceProblems
@@ -145,6 +146,7 @@ export default function CreativeStudioPage() {
                             "We deliver new batches of creative weekly or monthly so your campaigns never go stale. Constant testing, constant winning.",
                     },
                 ]}
+                source="service-creative-studio-problems"
             />
 
             <ServiceProcessVisual
@@ -271,7 +273,7 @@ export default function CreativeStudioPage() {
                 ]}
             />
 
-            <AboutCTA />
+            <AboutCTA source="service-creative-studio-cta" />
             <Footer />
         </main>
     );

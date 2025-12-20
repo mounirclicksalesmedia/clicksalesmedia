@@ -123,6 +123,7 @@ export default function WebDevPage() {
                 title="Websites Engineered to Convert"
                 description="We don't build brochure websites. We build performance-engineered digital assets designed to convert visitors into qualified leads. Speed, mobile-first, and UX-optimized."
                 visual={<WebsiteMockup />}
+                source="service-web-development-hero"
             />
 
             <ServiceProblems
@@ -133,7 +134,7 @@ export default function WebDevPage() {
                         problem: "Slow website driving visitors away",
                         solutionTitle: "Sub-second load times guaranteed",
                         solutionDescription:
-                            "We build with Next.js and modern tech stacks that load in under a second. No slow WordPress bloat killing your conversions.",
+                            "We build on modern stacks (Next.js) for sub-second load times that keep visitors engaged.",
                     },
                     {
                         problem: "Great traffic but terrible conversion rates",
@@ -148,6 +149,7 @@ export default function WebDevPage() {
                             "Structure, schemas, meta tags, and Core Web Vitals optimized from the start. Not an afterthought, but foundational.",
                     },
                 ]}
+                source="service-web-development-problems"
             />
 
             <ServiceProcessVisual
@@ -249,7 +251,7 @@ export default function WebDevPage() {
                 ]}
             />
 
-            <AboutCTA />
+            <AboutCTA source="service-web-development-cta" />
             <Footer />
         </main>
     );

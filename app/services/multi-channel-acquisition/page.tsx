@@ -118,6 +118,7 @@ export default function MultiChannelPage() {
                 title="Be Everywhere Your Clients Are"
                 description="Why rely on one channel when your customers are on five? We build synchronized ecosystems where LinkedIn, Email, Google, and Ads work together to surround your prospects."
                 visual={<EcosystemMockup />}
+                source="service-multi-channel-acquisition-hero"
             />
 
             <ServiceProblems
@@ -143,6 +144,7 @@ export default function MultiChannelPage() {
                             "We engineer high-frequency touchpoints across platforms so you stay top-of-mind without lifting a finger.",
                     },
                 ]}
+                source="service-multi-channel-acquisition-problems"
             />
 
             <ServiceProcessVisual
@@ -251,7 +253,7 @@ export default function MultiChannelPage() {
                 ]}
             />
 
-            <AboutCTA />
+            <AboutCTA source="service-multi-channel-acquisition-cta" />
             <Footer />
         </main>
     );

@@ -41,6 +41,7 @@ export default function GoogleAdsPage() {
                 title="Capture High-Intent Leads With Google Ads"
                 description="Dominate search results when your customers are actively looking for a solution. We build precision-targeted campaigns that convert clicks into revenue."
                 visual={<GoogleAdsMockup />}
+                source="service-google-ads-hero"
             />
 
             <ServiceProblems
@@ -66,6 +67,7 @@ export default function GoogleAdsPage() {
                             "We implement server-side tracking to capture every conversion, giving you crystal-clear ROI data that shows which keywords and ads generate revenue.",
                     },
                 ]}
+                source="service-google-ads-problems"
             />
 
             <ServiceProcessVisual
@@ -208,7 +210,7 @@ export default function GoogleAdsPage() {
                 ]}
             />
 
-            <AboutCTA />
+            <AboutCTA source="service-google-ads-cta" />
             <Footer />
         </main>
     );

@@ -27,6 +27,7 @@ import {
     Minus
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { BookingButton } from "@/components/booking/BookingButton";
 
 // ==================== DATA ====================
 
@@ -239,9 +240,11 @@ function HeroSection() {
                             We engineer high-performance campaigns on Google, Meta, and LinkedIn that don't just drive clicks—they drive qualified pipeline and demonstrable ROI.
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            <Button>
-                                Get a Proposal <ArrowRight className="ml-2 h-4 w-4" />
-                            </Button>
+                            <BookingButton
+                                text="Get a Proposal"
+                                source="service-paid-media-hero"
+                                variant="primary"
+                            />
                             <Button variant="outline">
                                 View Case Studies
                             </Button>
@@ -282,9 +285,12 @@ function HeroSection() {
                                     </div>
                                     <Check className="h-5 w-5 text-[#AD8253] ml-auto" />
                                 </div>
-                                <Button className="w-full bg-[#AD8253]/10 text-[#AD8253] hover:bg-[#AD8253] hover:text-white border border-[#AD8253]/20">
-                                    Analyze Your Funnel
-                                </Button>
+                                <BookingButton
+                                    text="Analyze Your Funnel"
+                                    source="service-paid-media-funnel_analysis"
+                                    variant="secondary"
+                                    className="w-full bg-[#AD8253]/10 text-[#AD8253] hover:bg-[#AD8253] hover:text-white border border-[#AD8253]/20"
+                                />
                             </div>
                         </div>
 
@@ -336,8 +342,8 @@ function OpportunitiesSection() {
                                 key={point.id}
                                 onClick={() => setActiveTab(index)}
                                 className={`flex w-full items-center justify-between rounded-xl p-6 text-left transition-all border ${activeTab === index
-                                        ? "bg-[#222] border-[#AD8253] text-[#AD8253] shadow-[0_0_20px_rgba(173,130,83,0.1)]"
-                                        : "bg-transparent border-transparent text-[#666] hover:bg-[#222] hover:text-[#ccc]"
+                                    ? "bg-[#222] border-[#AD8253] text-[#AD8253] shadow-[0_0_20px_rgba(173,130,83,0.1)]"
+                                    : "bg-transparent border-transparent text-[#666] hover:bg-[#222] hover:text-[#ccc]"
                                     }`}
                             >
                                 <span className="text-lg font-medium">{point.title}</span>
@@ -354,7 +360,10 @@ function OpportunitiesSection() {
                         <h3 className="mb-4 text-2xl font-bold text-white">{painPoints[activeTab].solution.title}</h3>
                         <p className="mb-8 text-[#a1a1a1] leading-relaxed text-lg">{painPoints[activeTab].solution.description}</p>
                         <div>
-                            <Button>Book a Strategy Call</Button>
+                            <BookingButton
+                                text="Book a Strategy Call"
+                                source="service-paid-media-pain_points"
+                            />
                         </div>
                     </div>
                 </div>
@@ -434,9 +443,11 @@ function StatsSection() {
                         <div className="space-y-6">
                             <h2 className="text-3xl font-bold text-white md:text-4xl">Ready to amplify your growth?</h2>
                             <p className="text-white/80 text-lg">Join the partners who've scaled to 7 and 8 figures with our systems.</p>
-                            <Button className="bg-white text-[#AD8253] hover:bg-white/90 shadow-xl">
-                                Book a Strategy Call <ArrowRight className="ml-2 h-4 w-4" />
-                            </Button>
+                            <BookingButton
+                                text="Book a Strategy Call"
+                                source="service-paid-media-stats"
+                                className="bg-white text-[#AD8253] hover:bg-white/90 shadow-xl"
+                            />
                         </div>
                         <div className="flex justify-around gap-8 text-center">
                             <div>
@@ -468,8 +479,8 @@ function PricingSection() {
                         <div
                             key={pkg.name}
                             className={`rounded-2xl border p-8 transition-all duration-300 ${pkg.featured
-                                    ? "border-[#AD8253] bg-[#AD8253]/5 shadow-[0_0_30px_rgba(173,130,83,0.1)] scale-105"
-                                    : "border-white/10 bg-[#222] hover:border-white/20"
+                                ? "border-[#AD8253] bg-[#AD8253]/5 shadow-[0_0_30px_rgba(173,130,83,0.1)] scale-105"
+                                : "border-white/10 bg-[#222] hover:border-white/20"
                                 }`}
                         >
                             <div className="mb-6 flex items-center justify-between">
@@ -490,19 +501,19 @@ function PricingSection() {
                                     </div>
                                 ))}
                             </div>
-                            <Button
+                            <BookingButton
+                                text="Get a Quote"
+                                source={`service-paid-media-pricing-${pkg.name.toLowerCase().replace(/\s+/g, '-')}`}
                                 className={`w-full ${pkg.featured
-                                        ? "bg-[#AD8253] text-white hover:bg-[#c3a177]"
-                                        : "border border-white/20 bg-transparent text-white hover:bg-white/5"
+                                    ? "bg-[#AD8253] text-white hover:bg-[#c3a177]"
+                                    : "border border-white/20 bg-transparent text-white hover:bg-white/5"
                                     }`}
-                            >
-                                Get a Quote
-                            </Button>
+                            />
                         </div>
                     ))}
                 </div>
             </div>
-        </section>
+        </section >
     );
 }
 

@@ -5,6 +5,7 @@ import Link from "next/link";
 import Lenis from "@studio-freight/lenis";
 import { Navigation } from "@/components/sections/Navigation";
 import { Footer } from "@/components/sections/Footer";
+import { BookingButton } from "@/components/booking/BookingButton";
 import {
     ChevronLeft,
     ChevronRight,
@@ -466,14 +467,15 @@ function HeroSection() {
                             Stop fighting over expensive ad keywords. We build direct outbound pipelines to CFOs, Developers, and Bank Executives to drive demos, partnerships, and revenue.
                         </p>
                         <div>
-                            <Link
-                                href="/contact"
-                                className="inline-flex items-center gap-2 px-6 py-3 bg-[#AD8253] text-white rounded-lg hover:bg-[#8a6842] transition-colors font-medium"
-                            >
-                                Get a Growth Strategy
-                                <ArrowRight className="w-4 h-4" />
-                            </Link>
-                            <p className="text-sm text-[#6b6b6b] mt-3">* schedule a 15-30-min discovery call</p>
+                            <div className="flex flex-col items-start gap-3">
+                                <BookingButton
+                                    text="Get a Growth Strategy"
+                                    variant="primary"
+                                    size="lg"
+                                    source="industry-fintech-hero"
+                                />
+                                <p className="text-sm text-[#6b6b6b]">* schedule a 15-30-min discovery call</p>
+                            </div>
                         </div>
                     </div>
 
@@ -900,9 +902,14 @@ function PricingSection() {
                     <p className="text-white mb-8">
                         Startups need different things than Enterprises. We build a package based on your current stage: Seed, Series A/B, or Public.
                     </p>
-                    <Link href="/contact" className="inline-block px-8 py-4 bg-[#AD8253] text-white rounded-lg hover:bg-[#8a6842] transition-colors font-medium">
-                        Get a Quote
-                    </Link>
+                    <div className="flex justify-center">
+                        <BookingButton
+                            text="Get a Quote"
+                            variant="primary"
+                            size="lg"
+                            source="industry-fintech-pricing"
+                        />
+                    </div>
                 </div>
             </div>
         </section>
@@ -960,9 +967,14 @@ function NutshellSection() {
                 <h2 className="text-3xl lg:text-4xl font-bold text-white mb-12">Fintech Growth Roadmap</h2>
                 <div className="grid lg:grid-cols-6 gap-4 text-center">
                     <div className="bg-[#1a1a1a] p-4 rounded-lg text-[#a1a1a1] col-span-2 flex items-center justify-center font-bold text-lg">Your Fintech</div>
-                    <Link href="/contact" className="col-span-2 bg-[#AD8253] p-4 rounded-lg text-white font-bold flex items-center justify-center hover:bg-[#c3a177] transition-colors">
-                        Accelerate Growth
-                    </Link>
+                    <div className="col-span-2 flex items-center justify-center">
+                        <BookingButton
+                            text="Accelerate Growth"
+                            variant="primary"
+                            className="w-full h-full text-lg"
+                            source="industry-fintech-nutshell"
+                        />
+                    </div>
                     <div className="bg-[#1a1a1a] p-4 rounded-lg text-[#a1a1a1] col-span-2 flex items-center justify-center font-bold text-lg">Market Dominance</div>
                 </div>
             </div>
@@ -996,12 +1008,14 @@ function CTASection() {
                 <p className="text-gray-400 mb-8">
                     Let's find your next 1,000 customers or 10 major bank partners.
                 </p>
-                <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 px-8 py-4 bg-[#AD8253] text-white rounded-lg hover:bg-[#c3a177] transition-colors font-medium"
-                >
-                    Book a Discovery Call
-                </Link>
+                <div className="flex justify-center">
+                    <BookingButton
+                        text="Book a Discovery Call"
+                        source="industry-fintech-cta"
+                        variant="primary"
+                        size="lg"
+                    />
+                </div>
             </div>
         </section>
     );

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { GlowingButton } from "@/components/ui/Buttons";
+import { BookingButton } from "@/components/booking/BookingButton";
 
 interface ProblemSolution {
     problem: string;
@@ -14,9 +14,10 @@ interface ServiceProblemsProps {
     title: string;
     subtitle: string;
     items: ProblemSolution[];
+    source?: string;
 }
 
-export function ServiceProblems({ title, subtitle, items }: ServiceProblemsProps) {
+export function ServiceProblems({ title, subtitle, items, source }: ServiceProblemsProps) {
     const [activeTab, setActiveTab] = useState(0);
 
     return (
@@ -37,8 +38,8 @@ export function ServiceProblems({ title, subtitle, items }: ServiceProblemsProps
                                 key={index}
                                 onClick={() => setActiveTab(index)}
                                 className={`flex w-full items-center justify-between rounded-lg p-4 text-left transition-all ${activeTab === index
-                                        ? "bg-[#1a1a1a] text-[#AD8253] shadow-lg"
-                                        : "text-[#a1a1a1] hover:bg-[#1a1a1a]/50"
+                                    ? "bg-[#1a1a1a] text-[#AD8253] shadow-lg"
+                                    : "text-[#a1a1a1] hover:bg-[#1a1a1a]/50"
                                     }`}
                             >
                                 <span className="text-sm md:text-base">{item.problem}</span>
@@ -72,7 +73,11 @@ export function ServiceProblems({ title, subtitle, items }: ServiceProblemsProps
                         <p className="mb-6 text-[#a1a1a1]">
                             {items[activeTab].solutionDescription}
                         </p>
-                        <GlowingButton>Book a Call</GlowingButton>
+                        <BookingButton
+                            text="Book a Call"
+                            source={source}
+                            variant="primary"
+                        />
                     </motion.div>
                 </div>
             </div>

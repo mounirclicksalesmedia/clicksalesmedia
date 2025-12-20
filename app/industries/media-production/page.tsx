@@ -5,6 +5,7 @@ import Link from "next/link";
 import Lenis from "@studio-freight/lenis";
 import { Navigation } from "@/components/sections/Navigation";
 import { Footer } from "@/components/sections/Footer";
+import { BookingButton } from "@/components/booking/BookingButton";
 import {
     ChevronLeft,
     ChevronRight,
@@ -466,13 +467,12 @@ function HeroSection() {
                             Stop relying on word-of-mouth. We help production studios connect with Brands and Agencies to fill their calendar with premium projects and retainers.
                         </p>
                         <div>
-                            <Link
-                                href="/contact"
-                                className="inline-flex items-center gap-2 px-6 py-3 bg-[#AD8253] text-white rounded-lg hover:bg-[#8a6842] transition-colors font-medium"
-                            >
-                                Get More Projects
-                                <ArrowRight className="w-4 h-4" />
-                            </Link>
+                            <BookingButton
+                                text="Get More Projects"
+                                variant="primary"
+                                className="bg-[#AD8253] text-white rounded-lg hover:bg-[#8a6842] transition-colors font-medium px-6 py-3"
+                                source="industry-media-production-hero"
+                            />
                             <p className="text-sm text-[#6b6b6b] mt-3">* schedule a 15-30-min strategy session</p>
                         </div>
                     </div>
@@ -901,9 +901,12 @@ function PricingSection() {
                     <p className="text-white mb-8">
                         Tailored outreach campaigns based on your studio's capacity and target market.
                     </p>
-                    <Link href="/contact" className="inline-block px-8 py-4 bg-[#AD8253] text-white rounded-lg hover:bg-[#8a6842] transition-colors font-medium">
-                        Get a Start Date
-                    </Link>
+                    <BookingButton
+                        text="Get a Start Date"
+                        variant="primary"
+                        className="inline-block px-8 py-4 bg-[#AD8253] text-white rounded-lg hover:bg-[#8a6842] transition-colors font-medium"
+                        source="industry-media-production-pricing"
+                    />
                 </div>
             </div>
         </section>
@@ -961,9 +964,12 @@ function NutshellSection() {
                 <h2 className="text-3xl lg:text-4xl font-bold text-white mb-12">From Idle to Action</h2>
                 <div className="grid lg:grid-cols-6 gap-4 text-center">
                     <div className="bg-[#1a1a1a] p-4 rounded-lg text-[#a1a1a1] col-span-2 flex items-center justify-center font-bold text-lg">Your Studio</div>
-                    <Link href="/contact" className="col-span-2 bg-[#AD8253] p-4 rounded-lg text-white font-bold flex items-center justify-center hover:bg-[#c3a177] transition-colors">
-                        Start Filming
-                    </Link>
+                    <BookingButton
+                        text="Start Filming"
+                        variant="primary"
+                        className="col-span-2 bg-[#AD8253] p-4 rounded-lg text-white font-bold flex items-center justify-center hover:bg-[#c3a177] transition-colors"
+                        source="industry-media-production-nutshell"
+                    />
                     <div className="bg-[#1a1a1a] p-4 rounded-lg text-[#a1a1a1] col-span-2 flex items-center justify-center font-bold text-lg">Booked Solid</div>
                 </div>
             </div>
@@ -997,12 +1003,12 @@ function CTASection() {
                 <p className="text-gray-400 mb-8">
                     Let's get your reel in front of better clients.
                 </p>
-                <Link
-                    href="/contact"
+                <BookingButton
+                    text="Book a Strategy Call"
+                    variant="primary"
+                    source="industry-media-production-cta"
                     className="inline-flex items-center gap-2 px-8 py-4 bg-[#AD8253] text-white rounded-lg hover:bg-[#c3a177] transition-colors font-medium"
-                >
-                    Book a Strategy Call
-                </Link>
+                />
             </div>
         </section>
     );

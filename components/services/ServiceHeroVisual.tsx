@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { GlowingButton } from "@/components/ui/Buttons";
+import { BookingButton } from "@/components/booking/BookingButton";
 
 interface ServiceHeroProps {
     badge: string;
@@ -10,9 +10,10 @@ interface ServiceHeroProps {
     description: string;
     ctaText?: string;
     visual: React.ReactNode;
+    source?: string;
 }
 
-export function ServiceHeroVisual({ badge, title, description, ctaText = "Get a Proposal", visual }: ServiceHeroProps) {
+export function ServiceHeroVisual({ badge, title, description, ctaText = "Get a Proposal", visual, source }: ServiceHeroProps) {
     return (
         <section className="relative overflow-hidden bg-[#272727] py-24 md:py-32">
             {/* Background Effects */}
@@ -40,13 +41,12 @@ export function ServiceHeroVisual({ badge, title, description, ctaText = "Get a 
                             {description}
                         </p>
 
-                        <GlowingButton className="whitespace-nowrap">
-                            {ctaText}
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
-                                <path d="M5 12h14" />
-                                <path d="m12 5 7 7-7 7" />
-                            </svg>
-                        </GlowingButton>
+                        <BookingButton
+                            text={ctaText}
+                            source={source}
+                            variant="primary"
+                            className="whitespace-nowrap"
+                        />
                     </motion.div>
 
                     {/* Visual */}

@@ -118,6 +118,7 @@ export default function RetargetingPage() {
                 title="Turn 'Maybe' Into 'Yes'"
                 description="98% of visitors won't buy on the first visit. We build advanced retargeting architectures that stage audiences by intent and nurture them until they convert."
                 visual={<RetargetingMapMockup />}
+                source="service-retargeting-staging-hero"
             />
 
             <ServiceProblems
@@ -143,6 +144,7 @@ export default function RetargetingPage() {
                             "We rotate creatives and messages automatically so your brand never feels stale or annoying.",
                     },
                 ]}
+                source="service-retargeting-staging-problems"
             />
 
             <ServiceProcessVisual
@@ -253,7 +255,7 @@ export default function RetargetingPage() {
                 ]}
             />
 
-            <AboutCTA />
+            <AboutCTA source="service-retargeting-staging-cta" />
             <Footer />
         </main>
     );

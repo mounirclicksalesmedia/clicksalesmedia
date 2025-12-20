@@ -67,6 +67,7 @@ export default function LinkedInAdsPage() {
                         </div>
                     </div>
                 }
+                source="service-linkedin-ads-hero"
             />
 
             <ServiceProblems
@@ -92,6 +93,7 @@ export default function LinkedInAdsPage() {
                             "We create compelling content and outreach strategies that capture attention and generate genuine interest in your offerings.",
                     },
                 ]}
+                source="service-linkedin-ads-problems"
             />
 
             <ServiceProcessVisual
@@ -237,7 +239,7 @@ export default function LinkedInAdsPage() {
                 ]}
             />
 
-            <AboutCTA />
+            <AboutCTA source="service-linkedin-ads-cta" />
             <Footer />
         </main>
     );

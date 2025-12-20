@@ -5,6 +5,7 @@ import Link from "next/link";
 import Lenis from "@studio-freight/lenis";
 import { Navigation } from "@/components/sections/Navigation";
 import { Footer } from "@/components/sections/Footer";
+import { BookingButton } from "@/components/booking/BookingButton";
 import {
     ChevronLeft,
     ChevronRight,
@@ -467,13 +468,12 @@ function HeroSection() {
                             Stop chasing low-fee contingent work. We help you connect directly with Hiring Managers to secure higher fees, exclusive terms, and retained searches.
                         </p>
                         <div>
-                            <Link
-                                href="/contact"
+                            <BookingButton
+                                text="Get More Clients"
+                                variant="primary"
                                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#AD8253] text-white rounded-lg hover:bg-[#8a6842] transition-colors font-medium"
-                            >
-                                Get More Clients
-                                <ArrowRight className="w-4 h-4" />
-                            </Link>
+                                source="industry-recruitment-hero"
+                            />
                             <p className="text-sm text-[#6b6b6b] mt-3">* schedule a 15-30-min strategy call</p>
                         </div>
                     </div>
@@ -901,9 +901,12 @@ function PricingSection() {
                     <p className="text-white mb-8">
                         We offer performance models based on meetings booked or a monthly retainer for managed campaigns.
                     </p>
-                    <Link href="/contact" className="inline-block px-8 py-4 bg-[#AD8253] text-white rounded-lg hover:bg-[#8a6842] transition-colors font-medium">
-                        Get a Quote
-                    </Link>
+                    <BookingButton
+                        text="Get a Quote"
+                        variant="primary"
+                        className="inline-block px-8 py-4 bg-[#AD8253] text-white rounded-lg hover:bg-[#8a6842] transition-colors font-medium"
+                        source="industry-recruitment-pricing"
+                    />
                 </div>
             </div>
         </section>
@@ -961,9 +964,12 @@ function NutshellSection() {
                 <h2 className="text-3xl lg:text-4xl font-bold text-white mb-12">From Contingent to Retained</h2>
                 <div className="grid lg:grid-cols-6 gap-4 text-center">
                     <div className="bg-[#1a1a1a] p-4 rounded-lg text-[#a1a1a1] col-span-2 flex items-center justify-center font-bold text-lg">Your Agency</div>
-                    <Link href="/contact" className="col-span-2 bg-[#AD8253] p-4 rounded-lg text-white font-bold flex items-center justify-center hover:bg-[#c3a177] transition-colors">
-                        Automate BD
-                    </Link>
+                    <BookingButton
+                        text="Automate BD"
+                        variant="primary"
+                        className="col-span-2 bg-[#AD8253] p-4 rounded-lg text-white font-bold flex items-center justify-center hover:bg-[#c3a177] transition-colors"
+                        source="industry-recruitment-nutshell"
+                    />
                     <div className="bg-[#1a1a1a] p-4 rounded-lg text-[#a1a1a1] col-span-2 flex items-center justify-center font-bold text-lg">Predictable Fees</div>
                 </div>
             </div>
@@ -997,12 +1003,12 @@ function CTASection() {
                 <p className="text-gray-400 mb-8">
                     Stop waiting for the phone to ring. Build a machine that brings job orders to you.
                 </p>
-                <Link
-                    href="/contact"
+                <BookingButton
+                    text="Book a Growth Call"
+                    variant="primary"
+                    source="industry-recruitment-cta"
                     className="inline-flex items-center gap-2 px-8 py-4 bg-[#AD8253] text-white rounded-lg hover:bg-[#c3a177] transition-colors font-medium"
-                >
-                    Book a Growth Call
-                </Link>
+                />
             </div>
         </section>
     );
