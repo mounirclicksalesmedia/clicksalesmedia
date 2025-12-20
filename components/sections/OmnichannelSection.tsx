@@ -11,16 +11,16 @@ const features = [
 ];
 
 const services = [
-    { title: "Sales development" },
-    { title: "Outsourced SDRs" },
-    { title: "Lead generation" },
-    { title: "Sales enablement" },
-    { title: "Lead nurturing" },
-    { title: "Lead generation training" },
-    { title: "Demand generation" },
-    { title: "HubSpot CRM consulting" },
-    { title: "Deliverability consulting" },
-    { title: "Account-based marketing" },
+    { title: "Sales development", href: "/services/alpha-lead-gen" },
+    { title: "AI Performance Marketing", href: "/services/ai-automation" },
+    { title: "Lead Generation 2.0", href: "/services/alpha-lead-gen" },
+    { title: "Sales enablement", href: "#" },
+    { title: "Lead nurturing", href: "#" },
+    { title: "Lead generation training", href: "#" },
+    { title: "Demand generation", href: "#" },
+    { title: "HubSpot CRM consulting", href: "/services/crm-architecture" },
+    { title: "Deliverability consulting", href: "#" },
+    { title: "Account-based marketing", href: "#" },
 ];
 
 function OmnichannelCard() {
@@ -151,8 +151,8 @@ function OmnichannelCard() {
     );
 }
 
-function ServiceCard({ title }: { title: string }) {
-    return (
+function ServiceCard({ title, href }: { title: string; href?: string }) {
+    const content = (
         <motion.div
             whileHover={{ x: 5, borderColor: "rgba(173, 130, 83, 0.5)" }}
             className="bg-[#272727] rounded-xl px-5 py-4 flex items-center justify-between border border-[#AD8253]/20 cursor-pointer group transition-all"
@@ -161,6 +161,16 @@ function ServiceCard({ title }: { title: string }) {
             <ArrowRight className="w-5 h-5 text-[#6b6b6b] group-hover:text-[#AD8253] transition-colors" />
         </motion.div>
     );
+
+    if (href && href !== "#") {
+        return (
+            <a href={href} className="block">
+                {content}
+            </a>
+        );
+    }
+
+    return content;
 }
 
 export function OmnichannelSection() {
@@ -214,7 +224,7 @@ export function OmnichannelSection() {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.4, delay: index * 0.05 }}
                                 >
-                                    <ServiceCard title={service.title} />
+                                    <ServiceCard title={service.title} href={service.href} />
                                 </motion.div>
                             ))}
                         </div>
