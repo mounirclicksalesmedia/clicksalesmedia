@@ -15,7 +15,7 @@ const services = [
     { title: "AI Performance Marketing", href: "/services/ai-automation" },
     { title: "Lead Generation 2.0", href: "/services/alpha-lead-gen" },
     { title: "High-Converting Web Design", href: "/services/creative-studio" },
-    { title: "CRO & Landing Page Optimization", href: "/services/paid-media" },
+    { title: "CRO & LP Optimization", href: "/services/paid-media" },
     { title: "Sales enablement", href: "/services/strategy-consulting" },
     { title: "Lead nurturing", href: "/services/multi-channel-acquisition" },
     { title: "Lead generation training", href: "/services/strategy-consulting" },
