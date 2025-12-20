@@ -64,7 +64,7 @@ export async function createCalendarEvent(params: CreateEventParams): Promise<Ca
         },
         attendees: [
             { email: attendeeEmail, displayName: attendeeName },
-            { email: process.env.ADMIN_EMAIL || 'hello@clicksalesmedia.com' },
+            { email: process.env.ADMIN_EMAIL || 'hello@mail.clicksalesmedia.com' },
         ],
         conferenceData: {
             createRequest: {

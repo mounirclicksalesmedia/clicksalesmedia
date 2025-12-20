@@ -15,8 +15,8 @@ function getResendClient(): Resend {
   return resendClient
 }
 
-const FROM_EMAIL = process.env.EMAIL_FROM || 'hello@clicksalesmedia.com'
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'hello@clicksalesmedia.com'
+const FROM_EMAIL = process.env.EMAIL_FROM || 'noreply@mail.clicksalesmedia.com'
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'hello@mail.clicksalesmedia.com'
 
 export interface MeetingEmailData {
   leadName: string
