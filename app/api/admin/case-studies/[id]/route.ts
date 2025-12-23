@@ -50,7 +50,7 @@ export async function PUT(
 
         const { id } = await params
         const body = await request.json()
-        const { title, description, content, image, industryIds, stats, published } = body
+        const { title, description, content, image, industryIds, stats, published, client, challenge, solution, results } = body
 
         const slug = title
             .toLowerCase()
@@ -67,8 +67,12 @@ export async function PUT(
             data: {
                 title,
                 slug,
+                client,
                 description,
                 content,
+                challenge,
+                solution,
+                results,
                 image,
                 published,
                 industries: {

@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,7 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Admin User for Authentication
 model User {
   id        String   @id @default(cuid())
   email     String   @unique
@@ -21,7 +17,6 @@ model User {
   updatedAt DateTime @updatedAt
 }
 
-// Blog Categories
 model BlogCategory {
   id          String        @id @default(cuid())
   name        String        @unique
@@ -32,34 +27,31 @@ model BlogCategory {
   articles    BlogArticle[]
 }
 
-// Blog Articles
 model BlogArticle {
   id          String       @id @default(cuid())
   title       String
   slug        String       @unique
-  content     String       @db.Text
+  content     String
   excerpt     String?
-  image       String? // Cloudinary URL
+  image       String?
   categoryId  String
-  category    BlogCategory @relation(fields: [categoryId], references: [id])
   readTime    String?
   published   Boolean      @default(false)
   publishedAt DateTime?
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
+  category    BlogCategory @relation(fields: [categoryId], references: [id])
 }
 
-// Case Study Industries (Categories for Case Studies)
 model Industry {
   id          String      @id @default(cuid())
   name        String      @unique
   slug        String      @unique
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
-  caseStudies CaseStudy[]
+  caseStudies CaseStudy[] @relation("CaseStudyToIndustry")
 }
 
-// Case Study Statistics
 model CaseStudyStat {
   id          String    @id @default(cuid())
   value       String
@@ -69,22 +61,24 @@ model CaseStudyStat {
   caseStudy   CaseStudy @relation(fields: [caseStudyId], references: [id], onDelete: Cascade)
 }
 
-// Case Studies
 model CaseStudy {
   id          String          @id @default(cuid())
   title       String
   slug        String          @unique
-  image       String? // Cloudinary URL
-  description String?         @db.Text
-  content     String?         @db.Text
-  industries  Industry[]
-  stats       CaseStudyStat[]
+  client      String?
+  image       String?
+  description String?
+  content     String?
+  challenge   String?
+  solution    String?
+  results     String?
   published   Boolean         @default(false)
   createdAt   DateTime        @default(now())
   updatedAt   DateTime        @updatedAt
+  stats       CaseStudyStat[]
+  industries  Industry[]      @relation("CaseStudyToIndustry")
 }
 
-// Contact Form Submissions
 model ContactSubmission {
   id        String   @id @default(cuid())
   name      String
@@ -92,16 +86,65 @@ model ContactSubmission {
   company   String?
   phone     String?
   service   String?
-  message   String   @db.Text
+  message   String
   read      Boolean  @default(false)
   createdAt DateTime @default(now())
 }
 
-// ==============================================
-// VIP Lead Qualification System
-// ==============================================
+model Lead {
+  id          String     @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  company     String?
+  website     String?
+  growthGoal  GrowthGoal
+  budgetTier  BudgetTier
+  status      LeadStatus @default(NEW)
+  isQualified Boolean    @default(false)
+  notes       String?
+  source      String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  meetings    Meeting[]
+}
 
-// Lead Status Enum
+model Meeting {
+  id             String        @id @default(cuid())
+  leadId         String
+  title          String        @default("Strategy Session")
+  startTime      DateTime
+  endTime        DateTime
+  timezone       String        @default("Europe/Paris")
+  googleEventId  String?
+  googleMeetLink String?
+  status         MeetingStatus @default(SCHEDULED)
+  notes          String?
+  reminderSent   Boolean       @default(false)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  lead           Lead          @relation(fields: [leadId], references: [id], onDelete: Cascade)
+}
+
+model AvailabilityConfig {
+  id           String   @id @default(cuid())
+  dayOfWeek    Int
+  startTime    String
+  endTime      String
+  isActive     Boolean  @default(true)
+  slotDuration Int      @default(30)
+  bufferTime   Int      @default(15)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model BlockedDate {
+  id        String   @id @default(cuid())
+  date      DateTime
+  reason    String?
+  createdAt DateTime @default(now())
+}
+
 enum LeadStatus {
   NEW
   QUALIFIED
@@ -112,16 +155,14 @@ enum LeadStatus {
   ARCHIVED
 }
 
-// Budget Tier Enum - Qualification threshold: $2k+
 enum BudgetTier {
-  UNDER_2K        // Not qualified
-  BETWEEN_2K_5K   // Qualified
-  BETWEEN_5K_10K  // Qualified
-  BETWEEN_10K_50K // Qualified
-  ABOVE_50K       // Qualified
+  UNDER_2K
+  BETWEEN_2K_5K
+  BETWEEN_5K_10K
+  BETWEEN_10K_50K
+  ABOVE_50K
 }
 
-// Growth Goal Enum
 enum GrowthGoal {
   SCALE_REVENUE
   BRAND_AWARENESS
@@ -129,69 +170,10 @@ enum GrowthGoal {
   FULL_DIGITAL_TRANSFORMATION
 }
 
-// Qualified Leads from the VIP form
-model Lead {
-  id            String      @id @default(cuid())
-  name          String
-  email         String
-  phone         String?
-  company       String?
-  website       String?
-  growthGoal    GrowthGoal
-  budgetTier    BudgetTier
-  status        LeadStatus  @default(NEW)
-  isQualified   Boolean     @default(false)
-  notes         String?     @db.Text
-  source        String?     // Page they came from
-  meetings      Meeting[]
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
-}
-
-// Meeting Status Enum
 enum MeetingStatus {
   SCHEDULED
   COMPLETED
   CANCELLED
   RESCHEDULED
   NO_SHOW
-}
-
-// Scheduled Meetings
-model Meeting {
-  id              String        @id @default(cuid())
-  leadId          String
-  lead            Lead          @relation(fields: [leadId], references: [id], onDelete: Cascade)
-  title           String        @default("Strategy Session")
-  startTime       DateTime
-  endTime         DateTime
-  timezone        String        @default("Europe/Paris")
-  googleEventId   String?       // Google Calendar Event ID
-  googleMeetLink  String?       // Google Meet URL
-  status          MeetingStatus @default(SCHEDULED)
-  notes           String?       @db.Text
-  reminderSent    Boolean       @default(false)
-  createdAt       DateTime      @default(now())
-  updatedAt       DateTime      @updatedAt
-}
-
-// Availability Configuration
-model AvailabilityConfig {
-  id            String   @id @default(cuid())
-  dayOfWeek     Int      // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
-  startTime     String   // "09:00"
-  endTime       String   // "17:00"
-  isActive      Boolean  @default(true)
-  slotDuration  Int      @default(30) // minutes
-  bufferTime    Int      @default(15) // minutes between slots
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-}
-
-// Blocked Dates (holidays, vacations)
-model BlockedDate {
-  id        String   @id @default(cuid())
-  date      DateTime
-  reason    String?
-  createdAt DateTime @default(now())
 }

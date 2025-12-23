@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
         }
 
         const body = await request.json()
-        const { title, description, content, image, industryIds, stats, published } = body
+        const { title, description, content, image, industryIds, stats, published, client, challenge, solution, results } = body
 
         if (!title) {
             return NextResponse.json(
@@ -62,8 +62,12 @@ export async function POST(request: NextRequest) {
             data: {
                 title,
                 slug,
+                client,
                 description,
                 content,
+                challenge,
+                solution,
+                results,
                 image,
                 published: published || false,
                 industries: {

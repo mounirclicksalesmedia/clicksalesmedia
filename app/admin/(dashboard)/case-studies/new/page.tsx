@@ -23,8 +23,12 @@ export default function NewCaseStudyPage() {
     const [isLoading, setIsLoading] = useState(false)
     const [formData, setFormData] = useState({
         title: '',
+        client: '',
         description: '',
         content: '',
+        challenge: '',
+        solution: '',
+        results: '',
         image: null as string | null,
         industryIds: [] as string[],
         stats: [] as Stat[],
@@ -111,6 +115,22 @@ export default function NewCaseStudyPage() {
                         />
                     </div>
 
+                    {/* Client */}
+                    <div>
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                            Client Name
+                        </label>
+                        <input
+                            type="text"
+                            value={formData.client}
+                            onChange={(e) =>
+                                setFormData({ ...formData, client: e.target.value })
+                            }
+                            className="w-full px-4 py-3 rounded-lg bg-[#1a1a1a] border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-[#AD8253]"
+                            placeholder="Enter client name"
+                        />
+                    </div>
+
                     {/* Industries */}
                     <div>
                         <label className="block text-sm font-medium text-gray-300 mb-2">
@@ -123,8 +143,8 @@ export default function NewCaseStudyPage() {
                                     type="button"
                                     onClick={() => handleIndustryToggle(industry.id)}
                                     className={`px-3 py-1.5 rounded-full text-sm transition-colors ${formData.industryIds.includes(industry.id)
-                                            ? 'bg-[#AD8253] text-white'
-                                            : 'bg-[#1a1a1a] text-gray-400 hover:text-white border border-white/10'
+                                        ? 'bg-[#AD8253] text-white'
+                                        : 'bg-[#1a1a1a] text-gray-400 hover:text-white border border-white/10'
                                         }`}
                                 >
                                     {industry.name}
@@ -149,19 +169,67 @@ export default function NewCaseStudyPage() {
                         />
                     </div>
 
-                    {/* Content */}
+                    {/* Challenge */}
                     <div>
                         <label className="block text-sm font-medium text-gray-300 mb-2">
-                            Full Content
+                            The Challenge
+                        </label>
+                        <textarea
+                            value={formData.challenge}
+                            onChange={(e) =>
+                                setFormData({ ...formData, challenge: e.target.value })
+                            }
+                            rows={4}
+                            className="w-full px-4 py-3 rounded-lg bg-[#1a1a1a] border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-[#AD8253]"
+                            placeholder="Describe the challenge the client faced..."
+                        />
+                    </div>
+
+                    {/* Solution */}
+                    <div>
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                            The Solution
+                        </label>
+                        <textarea
+                            value={formData.solution}
+                            onChange={(e) =>
+                                setFormData({ ...formData, solution: e.target.value })
+                            }
+                            rows={4}
+                            className="w-full px-4 py-3 rounded-lg bg-[#1a1a1a] border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-[#AD8253]"
+                            placeholder="Describe the solution you implemented..."
+                        />
+                    </div>
+
+                    {/* Results */}
+                    <div>
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                            The Results
+                        </label>
+                        <textarea
+                            value={formData.results}
+                            onChange={(e) =>
+                                setFormData({ ...formData, results: e.target.value })
+                            }
+                            rows={4}
+                            className="w-full px-4 py-3 rounded-lg bg-[#1a1a1a] border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-[#AD8253]"
+                            placeholder="Describe the results achieved..."
+                        />
+                    </div>
+
+                    {/* Content (Legacy/Optional) */}
+                    <div>
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                            Additional Content (Optional)
                         </label>
                         <textarea
                             value={formData.content}
                             onChange={(e) =>
                                 setFormData({ ...formData, content: e.target.value })
                             }
-                            rows={8}
+                            rows={4}
                             className="w-full px-4 py-3 rounded-lg bg-[#1a1a1a] border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-[#AD8253]"
-                            placeholder="Detailed case study content..."
+                            placeholder="Any additional content..."
                         />
                     </div>
 

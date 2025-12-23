@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Navigation } from "@/components/sections/Navigation";
 import { Footer } from "@/components/sections/Footer";
-import { ArrowRight, Play, Clock, ChevronLeft, ChevronRight, ChevronDown, Users } from "lucide-react";
+import { ArrowRight, Play, Clock, ChevronLeft, ChevronRight, ChevronDown, Users, Loader2 } from "lucide-react";
 
 // Case studies data
 const industries = [
@@ -19,7 +19,28 @@ const industries = [
     "Technology",
 ]
 
-import { caseStudies } from "@/app/data/case-studies";
+interface Industry {
+    id: string;
+    name: string;
+}
+
+interface Stat {
+    id: string;
+    value: string;
+    label: string;
+}
+
+interface CaseStudy {
+    id: string;
+    title: string;
+    slug: string;
+    client: string | null;
+    image: string | null;
+    description: string | null;
+    industries: Industry[];
+    stats: Stat[];
+    published: boolean;
+}
 
 // Hero Section
 function HeroSection() {
@@ -116,6 +137,33 @@ function IndustryTabs() {
 function CaseStudiesGrid() {
     const [companySizeOpen, setCompanySizeOpen] = useState(false)
     const [industryOpen, setIndustryOpen] = useState(false)
+    const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([])
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+        async function fetchCaseStudies() {
+            try {
+                const response = await fetch('/api/admin/case-studies?published=true')
+                const data = await response.json()
+                setCaseStudies(data)
+            } catch (error) {
+                console.error('Failed to fetch case studies:', error)
+            } finally {
+                setIsLoading(false)
+            }
+        }
+        fetchCaseStudies()
+    }, [])
+
+    if (isLoading) {
+        return (
+            <section className="bg-[#272727] py-16">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center h-64">
+                    <Loader2 className="w-8 h-8 text-[#AD8253] animate-spin" />
+                </div>
+            </section>
+        )
+    }
 
     return (
         <section className="bg-[#272727] py-16">
@@ -175,24 +223,24 @@ function CaseStudiesGrid() {
                     {caseStudies.map((study) => (
                         <Link
                             key={study.id}
-                            href={`/case-studies/${study.id}`}
+                            href={`/case-studies/${study.slug}`}
                             className="bg-[#1e1e1e] rounded-2xl overflow-hidden border border-[#3a3a3a] hover:border-[#AD8253] transition-colors group cursor-pointer block"
                         >
                             <div className="relative overflow-hidden h-56 bg-[#000]">
-                                {/* Image Placeholder - In real app use next/image */}
+                                {/* Image */}
                                 <div className="w-full h-full bg-[#333] flex items-center justify-center text-[#666]">
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    {study.image.startsWith("/") ? <img src={study.image} alt={study.title} className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity" /> : "[Image]"}
+                                    {study.image ? <img src={study.image} alt={study.title} className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity" /> : "[Image]"}
                                 </div>
                             </div>
                             <div className="p-6">
                                 <div className="flex gap-2 mb-4">
-                                    {study.categories.map((category) => (
+                                    {study.industries.map((ind) => (
                                         <span
-                                            key={category}
+                                            key={ind.id}
                                             className="text-xs font-medium text-gray-400 bg-[#272727] px-3 py-1 rounded-full border border-[#3a3a3a]"
                                         >
-                                            {category}
+                                            {ind.name}
                                         </span>
                                     ))}
                                 </div>
