@@ -19,70 +19,7 @@ const industries = [
     "Technology",
 ]
 
-const caseStudies = [
-    {
-        id: 1,
-        image: "/manufacturing-factory-times-square-signage.jpg",
-        categories: ["Manufacturing"],
-        title:
-            "A U.S.-based signage manufacturer improved lead flow and tripled its pipeline with our omnichannel strategy",
-        stats: [
-            { value: "$2.7M", label: "pipeline generated" },
-            { value: "$575K", label: "the largest deal booked" },
-        ],
-    },
-    {
-        id: 2,
-        image: "/healthcare-tech-company-presentation-getwell.jpg",
-        categories: ["Healthcare", "SaaS"],
-        title: "We helped a health tech company reach new buyer personas and 5x their meeting conversion rate",
-        stats: [
-            { value: "44", label: "qualified meetings in 5.5 months" },
-            { value: "72%", label: "of meetings booked with new buyer personas" },
-        ],
-    },
-    {
-        id: 3,
-        image: "/warehouse-worker-human-resources-inclusive-workpla.jpg",
-        categories: ["Human Resources"],
-        title: "Inbound + outbound LinkedIn strategy boosted growth for an inclusive talent provider",
-        stats: [
-            { value: "450%", label: "Pipeline growth in the first 3 months" },
-            { value: "70%", label: "Better connection acceptance rate" },
-        ],
-    },
-    {
-        id: 4,
-        image: "/financial-services-trading-floor-purple-lights.jpg",
-        categories: ["Finance"],
-        title:
-            "An investment platform fixed inconsistent lead flow issues and landed 30+ monthly meetings with our omnichannel approach",
-        stats: [
-            { value: "$434K", label: "Forecasted new revenue" },
-            { value: "346", label: "Appointments in 15 months" },
-        ],
-    },
-    {
-        id: 5,
-        image: "/legal-services-office-professional-blackhills-ai.jpg",
-        categories: ["Legal Services"],
-        title: "HubSpot migration with our team helped a legal services company cut down CRM costs by 50%",
-        stats: [
-            { value: "20%", label: "Increase in lead response rate" },
-            { value: "10%", label: "Higher lead-to-customer conversions" },
-        ],
-    },
-    {
-        id: 6,
-        image: "/ge-healthcare-medical-technology-conference-purple.jpg",
-        categories: ["Manufacturing"],
-        title: "Event-based cold outreach: Bringing deals with dream clients for a medical technology company",
-        stats: [
-            { value: "135", label: "In-person meetings in 7 months" },
-            { value: "112%", label: "Avg. monthly KPI" },
-        ],
-    },
-]
+import { caseStudies } from "@/app/data/case-studies";
 
 // Hero Section
 function HeroSection() {
@@ -157,8 +94,8 @@ function IndustryTabs() {
                                     key={industry}
                                     onClick={() => setActiveIndex(index)}
                                     className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${activeIndex === index
-                                            ? "bg-[#AD8253] text-white"
-                                            : "bg-[#1e1e1e] text-gray-300 hover:text-white border border-[#3a3a3a]"
+                                        ? "bg-[#AD8253] text-white"
+                                        : "bg-[#1e1e1e] text-gray-300 hover:text-white border border-[#3a3a3a]"
                                         }`}
                                 >
                                     {industry}
@@ -236,14 +173,16 @@ function CaseStudiesGrid() {
                 {/* Case Studies Grid */}
                 <div className="grid md:grid-cols-2 gap-8">
                     {caseStudies.map((study) => (
-                        <div
+                        <Link
                             key={study.id}
-                            className="bg-[#1e1e1e] rounded-2xl overflow-hidden border border-[#3a3a3a] hover:border-[#AD8253] transition-colors group cursor-pointer"
+                            href={`/case-studies/${study.id}`}
+                            className="bg-[#1e1e1e] rounded-2xl overflow-hidden border border-[#3a3a3a] hover:border-[#AD8253] transition-colors group cursor-pointer block"
                         >
                             <div className="relative overflow-hidden h-56 bg-[#000]">
-                                {/* Image Placeholder */}
+                                {/* Image Placeholder - In real app use next/image */}
                                 <div className="w-full h-full bg-[#333] flex items-center justify-center text-[#666]">
-                                    [Case Study Image]
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    {study.image.startsWith("/") ? <img src={study.image} alt={study.title} className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity" /> : "[Image]"}
                                 </div>
                             </div>
                             <div className="p-6">
@@ -257,19 +196,22 @@ function CaseStudiesGrid() {
                                         </span>
                                     ))}
                                 </div>
-                                <h3 className="text-lg font-semibold text-white mb-6 leading-snug group-hover:text-[#c3a177] transition-colors">
+                                <h3 className="text-lg font-semibold text-white mb-3 leading-snug group-hover:text-[#c3a177] transition-colors">
                                     {study.title}
                                 </h3>
+                                <p className="text-gray-400 text-sm mb-6 line-clamp-2">
+                                    {study.description}
+                                </p>
                                 <div className="grid grid-cols-2 gap-4">
                                     {study.stats.map((stat, index) => (
                                         <div key={index}>
-                                            <p className="text-2xl font-bold text-[#AD8253]">{stat.value}</p>
-                                            <p className="text-sm text-gray-500 mt-1">{stat.label}</p>
+                                            <p className="text-xl font-bold text-[#AD8253]">{stat.value}</p>
+                                            <p className="text-xs text-gray-500 mt-1">{stat.label}</p>
                                         </div>
                                     ))}
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
 
