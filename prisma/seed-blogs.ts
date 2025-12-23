@@ -30,7 +30,7 @@ async function main() {
       slug: 'html-in-web-development-guide',
       category: 'Web Development',
       excerpt: 'Master the foundations of the web. Learn why HTML is still critical for SEO and modern web application development.',
-      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=630&fit=crop&q=80',
       readTime: '12 min',
       content: `
         <h2>Why HTML is Still the Backbone of the Web</h2>
@@ -56,7 +56,7 @@ async function main() {
       slug: 'facebook-ads-management-small-business',
       category: 'Social Media',
       excerpt: 'Stop wasting budget. Learn how professional Facebook Ads Management can transform your small business marketing.',
-      image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&h=630&fit=crop&q=80',
       readTime: '10 min',
       content: `
         <h2>Why You Need a Facebook Advertising Manager</h2>
@@ -76,7 +76,7 @@ async function main() {
       slug: 'performance-marketing-agencies-growth',
       category: 'Performance Marketing',
       excerpt: 'What is performance marketing? Discover how paying for results can change your B2B marketing strategy.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=630&fit=crop&q=80',
       readTime: '15 min',
       content: `
         <h2>Data-Driven Marketing Approach</h2>
@@ -96,7 +96,7 @@ async function main() {
       slug: 'b2b-lead-generation-strategies',
       category: 'B2B Marketing',
       excerpt: 'From LinkedIn to Cold Email, here are the top strategies for generating high-quality B2B leads this year.',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=630&fit=crop&q=80',
       readTime: '14 min',
       content: `
         <h2>Account Based Marketing for B2B</h2>
@@ -116,7 +116,7 @@ async function main() {
       slug: 'seo-and-web-design-integration',
       category: 'SEO & GEO',
       excerpt: 'Why your beautiful website might be invisible to Google. The importance of integrating SEO into your web design process.',
-      image: 'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=1200&h=630&fit=crop&q=80',
       readTime: '11 min',
       content: `
         <h2>SEO Web Design Services</h2>
@@ -134,7 +134,7 @@ async function main() {
       slug: 'custom-web-development-vs-templates',
       category: 'Web Development',
       excerpt: 'Should you build from scratch or use a template? A deep dive into custom web development benefits.',
-      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=630&fit=crop&q=80',
       readTime: '13 min',
       content: `
         <h2>The Case for Custom Website Development</h2>
@@ -151,7 +151,7 @@ async function main() {
       slug: 'generative-engine-optimization-geo',
       category: 'SEO & GEO',
       excerpt: 'SEO is changing. Meet GEO. How to optimize your content for AI search engines like ChatGPT and Perplexity.',
-      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop&q=80',
       readTime: '16 min',
       content: `
         <h2>SEO and AI Search Engine Optimization</h2>
@@ -166,7 +166,7 @@ async function main() {
       slug: 'ppc-management-google-vs-social',
       category: 'Performance Marketing',
       excerpt: 'Where should you spend your ad budget? Comparing Google Ads intent with Social Ads disruption.',
-      image: 'https://images.unsplash.com/photo-1553484771-047a44eee27b?w=800&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=1200&h=630&fit=crop&q=80',
       readTime: '12 min',
       content: `
         <h2>PPC Management Companies Explained</h2>
@@ -181,7 +181,7 @@ async function main() {
       slug: 'maximizing-b2b-marketing-roi',
       category: 'B2B Marketing',
       excerpt: 'How to measure and improve your Return on Investment in B2B marketing campaigns.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=630&fit=crop&q=80',
       readTime: '10 min',
       content: `
         <h2>Measuring ROI in Marketing</h2>
@@ -196,7 +196,7 @@ async function main() {
       slug: 'web-application-development-trends',
       category: 'Web Development',
       excerpt: 'From PWA to WebAssembly, discover the technologies shaping the future of web apps.',
-      image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=630&fit=crop&q=80',
       readTime: '14 min',
       content: `
         <h2>Modern Web App Development</h2>
@@ -211,7 +211,7 @@ async function main() {
       slug: 'social-media-marketing-b2b',
       category: 'Social Media',
       excerpt: 'Debunking the myth that social media is only for B2C. How to use LinkedIn and Twitter for B2B growth.',
-      image: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1611162617263-4ec3060a058e?w=1200&h=630&fit=crop&q=80',
       readTime: '11 min',
       content: `
         <h2>Social Media Marketing Agency Services</h2>
@@ -226,7 +226,7 @@ async function main() {
       slug: 'ecommerce-conversion-rate-optimization',
       category: 'Performance Marketing',
       excerpt: 'Traffic is vanity, conversion is sanity. Strategies to turn visitors into buyers.',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=630&fit=crop&q=80',
       readTime: '15 min',
       content: `
         <h2>Web Conversion Optimisation</h2>
