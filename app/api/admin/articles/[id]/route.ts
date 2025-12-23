@@ -60,10 +60,24 @@ export async function PUT(
             )
         }
 
-        const slug = title
+        // Generate slug from title
+        let slug = title
             .toLowerCase()
             .replace(/[^a-z0-9]+/g, '-')
             .replace(/(^-|-$)/g, '')
+
+        // Check if slug conflicts with another article (not this one)
+        const slugConflict = await prisma.blogArticle.findFirst({
+            where: {
+                slug,
+                id: { not: id }
+            }
+        })
+
+        // If slug conflicts, append a unique suffix
+        if (slugConflict) {
+            slug = `${slug}-${id.slice(-6)}`
+        }
 
         // Set publishedAt when first publishing
         let publishedAt = existingArticle.publishedAt
@@ -77,10 +91,10 @@ export async function PUT(
                 title,
                 slug,
                 content,
-                excerpt,
-                image,
+                excerpt: excerpt || null,
+                image: image || null,
                 categoryId,
-                readTime,
+                readTime: readTime || null,
                 published,
                 publishedAt,
             },
@@ -92,6 +106,21 @@ export async function PUT(
         return NextResponse.json(article)
     } catch (error) {
         console.error('Error updating article:', error)
+
+        // Return more specific error messages
+        if (error instanceof Error) {
+            if (error.message.includes('Unique constraint')) {
+                return NextResponse.json(
+                    { error: 'An article with this title/slug already exists' },
+                    { status: 400 }
+                )
+            }
+            return NextResponse.json(
+                { error: `Failed to update article: ${error.message}` },
+                { status: 500 }
+            )
+        }
+
         return NextResponse.json(
             { error: 'Failed to update article' },
             { status: 500 }
