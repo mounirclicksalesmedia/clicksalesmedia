@@ -1,3 +1,6 @@
+// Force dynamic rendering - no caching
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 import { Metadata } from "next";
 import Image from "next/image";

@@ -1,6 +1,10 @@
 import { prisma } from "@/lib/prisma";
 import { BlogPageClient } from "./BlogPageClient";
 
+// Force dynamic rendering - no caching
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default async function BlogPage() {
     // Fetch all categories with their latest 4 articles (Server Component)
     const categories = await prisma.blogCategory.findMany({
