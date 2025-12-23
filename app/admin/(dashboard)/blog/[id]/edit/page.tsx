@@ -5,6 +5,7 @@ import { useRouter, useParams } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, Loader2 } from 'lucide-react'
 import { ImageUploader } from '@/components/admin/ImageUploader'
+import { RichTextEditor } from '@/components/admin/RichTextEditor'
 
 interface Category {
     id: string
@@ -172,14 +173,11 @@ export default function EditArticlePage() {
                         <label className="block text-sm font-medium text-gray-300 mb-2">
                             Content *
                         </label>
-                        <textarea
-                            required
+                        <RichTextEditor
                             value={formData.content}
-                            onChange={(e) =>
-                                setFormData({ ...formData, content: e.target.value })
+                            onChange={(value) =>
+                                setFormData({ ...formData, content: value })
                             }
-                            rows={12}
-                            className="w-full px-4 py-3 rounded-lg bg-[#1a1a1a] border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-[#AD8253]"
                             placeholder="Write your article content here..."
                         />
                     </div>
