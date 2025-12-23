@@ -105,20 +105,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
                         {article.image && (
                             <div className="rounded-2xl overflow-hidden border border-white/5 mb-12 shadow-2xl">
-                                {/* Use a functional Image component if dealing with real URLs, 
-                            but for now we might have local paths or placeholders. 
-                            If it starts with http, use it, else assume local public. */}
                                 <div className="relative aspect-video w-full bg-[#222]">
-                                    {/* <Image 
-                                src={article.image} 
-                                alt={article.title} 
-                                fill 
-                                className="object-cover"
-                            /> */}
-                                    {/* Fallback visual since we don't have real images yet */}
-                                    <div className="absolute inset-0 flex items-center justify-center text-[#444] text-lg font-medium">
-                                        [Featured Image: {article.title}]
-                                    </div>
+                                    <Image
+                                        src={article.image}
+                                        alt={article.title}
+                                        fill
+                                        className="object-cover"
+                                    />
                                 </div>
                             </div>
                         )}
