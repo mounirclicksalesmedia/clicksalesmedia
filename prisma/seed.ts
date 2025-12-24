@@ -42,6 +42,8 @@ async function main() {
         'Legal Services',
         'Technology',
         'Human Resources',
+        'Education',
+        'Marine',
     ]
 
     for (const name of industries) {

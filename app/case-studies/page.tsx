@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Navigation } from "@/components/sections/Navigation";
 import { Footer } from "@/components/sections/Footer";
 import { ArrowRight, ChevronLeft, ChevronRight, ChevronDown, Users, Loader2, TrendingUp, Target } from "lucide-react";
+import { motion } from "framer-motion";
 
 // Case studies data
 const industries = [
@@ -45,10 +46,14 @@ interface CaseStudy {
 // Hero Section
 function HeroSection() {
     return (
-        <section className="bg-[#1e1e1e] pt-32 pb-16 lg:pb-24">
+        <section className="bg-[#1e1e1e] pt-32 pb-16 lg:pb-24 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    <div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                    >
                         <span className="text-[#AD8253] font-semibold text-sm uppercase tracking-wide">Case Studies</span>
                         <h1 className="text-4xl lg:text-5xl font-bold text-white mt-4 leading-tight">
                             Inspiring success stories of our clients
@@ -60,43 +65,70 @@ function HeroSection() {
                             Contact us
                             <ArrowRight className="w-4 h-4" />
                         </button>
-                    </div>
+                    </motion.div>
 
-                    {/* Abstract Visual / Stats Card */}
+                    {/* Animated Stats Visual */}
                     <div className="relative h-full min-h-[400px] flex items-center justify-center">
-                        {/* Decorative Background Effects */}
-                        <div className="absolute top-0 right-0 w-72 h-72 bg-[#AD8253]/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-                        <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#AD8253]/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+                        {/* Animated Glowing Orbs */}
+                        <motion.div
+                            className="absolute top-0 right-0 w-72 h-72 bg-[#AD8253]/30 rounded-full blur-[100px] pointer-events-none"
+                            animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                        />
+                        <motion.div
+                            className="absolute bottom-0 left-0 w-72 h-72 bg-[#AD8253]/20 rounded-full blur-[100px] pointer-events-none"
+                            animate={{ scale: [1, 1.15, 1], opacity: [0.2, 0.4, 0.2] }}
+                            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                        />
 
                         <div className="relative w-full grid grid-cols-2 gap-4">
                             {/* Stat Card 1 - ROI */}
-                            <div className="bg-[#272727]/80 backdrop-blur-md rounded-2xl p-6 border border-white/5 transform hover:-translate-y-1 transition-transform duration-300">
+                            <motion.div
+                                className="bg-[#272727]/80 backdrop-blur-md rounded-2xl p-6 border border-white/5 hover:-translate-y-1 transition-transform duration-300"
+                                initial={{ opacity: 0, y: 40 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.2 }}
+                            >
                                 <div className="w-10 h-10 rounded-full bg-[#AD8253]/10 flex items-center justify-center mb-4">
                                     <TrendingUp className="w-5 h-5 text-[#AD8253]" />
                                 </div>
                                 <h3 className="text-3xl font-bold text-white mb-1">+240%</h3>
                                 <p className="text-gray-400 text-sm">Average Client ROI</p>
-                            </div>
+                            </motion.div>
 
                             {/* Stat Card 2 - Industries (Offset) */}
-                            <div className="bg-[#272727]/80 backdrop-blur-md rounded-2xl p-6 border border-white/5 transform translate-y-8 hover:translate-y-7 transition-transform duration-300">
+                            <motion.div
+                                className="bg-[#272727]/80 backdrop-blur-md rounded-2xl p-6 border border-white/5 translate-y-8 hover:translate-y-7 transition-transform duration-300"
+                                initial={{ opacity: 0, y: 40 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.35 }}
+                            >
                                 <div className="w-10 h-10 rounded-full bg-[#AD8253]/10 flex items-center justify-center mb-4">
                                     <Users className="w-5 h-5 text-[#AD8253]" />
                                 </div>
                                 <h3 className="text-3xl font-bold text-white mb-1">50+</h3>
                                 <p className="text-gray-400 text-sm">Industries Served</p>
-                            </div>
+                            </motion.div>
 
                             {/* Stat Card 3 - Revenue (Full Width) */}
-                            <div className="col-span-2 bg-[#272727]/80 backdrop-blur-md rounded-2xl p-6 border border-white/5 mt-4 flex items-center justify-between transform hover:-translate-y-1 transition-transform duration-300">
+                            <motion.div
+                                className="col-span-2 bg-[#272727]/80 backdrop-blur-md rounded-2xl p-6 border border-white/5 mt-4 flex items-center justify-between hover:-translate-y-1 transition-transform duration-300"
+                                initial={{ opacity: 0, y: 40 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.5 }}
+                            >
                                 <div>
                                     <h3 className="text-3xl font-bold text-white mb-1">$100M+</h3>
                                     <p className="text-gray-400 text-sm">Revenue Generated</p>
                                 </div>
-                                <div className="w-12 h-12 rounded-full bg-[#AD8253] flex items-center justify-center">
+                                <motion.div
+                                    className="w-12 h-12 rounded-full bg-[#AD8253] flex items-center justify-center"
+                                    animate={{ scale: [1, 1.05, 1] }}
+                                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                                >
                                     <Target className="w-6 h-6 text-white" />
-                                </div>
-                            </div>
+                                </motion.div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>
