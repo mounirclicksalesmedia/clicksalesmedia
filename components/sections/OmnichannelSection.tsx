@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight, Mail, Phone, Video, MessageCircle } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -40,7 +41,14 @@ function OmnichannelCard() {
                     {/* Person image placeholder */}
                     <div className="w-48 h-48 rounded-full overflow-hidden mx-auto relative bg-gradient-to-br from-[#AD8253]/20 to-[#c3a177]/20 flex items-center justify-center">
                         <div className="w-36 h-36 rounded-full bg-gradient-to-br from-[#AD8253] to-[#c3a177] flex items-center justify-center">
-                            <span className="text-5xl">👩‍💼</span>
+                            <div className="relative w-20 h-20">
+                                <Image
+                                    src="/clicksalesmedia-symbol-v.png"
+                                    alt="ClickSalesMedia Symbol"
+                                    fill
+                                    className="object-contain brightness-0 invert"
+                                />
+                            </div>
                         </div>
                     </div>
 
