@@ -202,11 +202,11 @@ export function QualificationModal({ isOpen, onClose, source }: QualificationMod
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
                         transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                        className="fixed inset-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-lg z-[9999] flex items-center justify-center"
+                        className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div
-                            className="bg-[#272727] rounded-2xl border border-[#AD8253]/30 w-full max-h-[90vh] overflow-hidden shadow-2xl flex flex-col"
+                            className="bg-[#272727] rounded-2xl border border-[#AD8253]/30 w-full max-w-lg max-h-[90vh] overflow-hidden shadow-2xl flex flex-col"
                             onWheel={(e) => e.stopPropagation()}
                         >
                             {/* Header */}

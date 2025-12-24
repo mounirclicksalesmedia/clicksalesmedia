@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Navigation } from "@/components/sections/Navigation";
 import { Footer } from "@/components/sections/Footer";
-import { ArrowRight, Play, Clock, ChevronLeft, ChevronRight, ChevronDown, Users, Loader2 } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, ChevronDown, Users, Loader2, TrendingUp, Target } from "lucide-react";
 
 // Case studies data
 const industries = [
@@ -62,33 +62,41 @@ function HeroSection() {
                         </button>
                     </div>
 
-                    {/* Testimonials Video Card */}
-                    <div className="bg-[#272727] rounded-2xl overflow-hidden border border-[#3a3a3a]">
-                        <div className="relative">
-                            {/* Using a placeholder since we don't have the image file yet */}
-                            <div className="w-full h-64 bg-[#333] flex items-center justify-center">
-                                <Play className="w-12 h-12 text-[#AD8253]" />
+                    {/* Abstract Visual / Stats Card */}
+                    <div className="relative h-full min-h-[400px] flex items-center justify-center">
+                        {/* Decorative Background Effects */}
+                        <div className="absolute top-0 right-0 w-72 h-72 bg-[#AD8253]/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+                        <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#AD8253]/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+
+                        <div className="relative w-full grid grid-cols-2 gap-4">
+                            {/* Stat Card 1 - ROI */}
+                            <div className="bg-[#272727]/80 backdrop-blur-md rounded-2xl p-6 border border-white/5 transform hover:-translate-y-1 transition-transform duration-300">
+                                <div className="w-10 h-10 rounded-full bg-[#AD8253]/10 flex items-center justify-center mb-4">
+                                    <TrendingUp className="w-5 h-5 text-[#AD8253]" />
+                                </div>
+                                <h3 className="text-3xl font-bold text-white mb-1">+240%</h3>
+                                <p className="text-gray-400 text-sm">Average Client ROI</p>
                             </div>
 
-                            <div className="absolute top-4 left-4 bg-[#272727] text-white px-3 py-1.5 rounded-lg text-sm font-medium flex items-center gap-2">
-                                <Play className="w-4 h-4 text-[#AD8253]" />
-                                TESTIMONIALS
-                            </div>
-                            <button className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-16 h-16 bg-[#AD8253] rounded-full flex items-center justify-center hover:bg-[#c3a177] transition-colors">
-                                    <Play className="w-6 h-6 text-white ml-1" fill="white" />
+                            {/* Stat Card 2 - Industries (Offset) */}
+                            <div className="bg-[#272727]/80 backdrop-blur-md rounded-2xl p-6 border border-white/5 transform translate-y-8 hover:translate-y-7 transition-transform duration-300">
+                                <div className="w-10 h-10 rounded-full bg-[#AD8253]/10 flex items-center justify-center mb-4">
+                                    <Users className="w-5 h-5 text-[#AD8253]" />
                                 </div>
-                            </button>
-                            <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-4">
-                                <p className="text-gray-900 font-semibold text-lg">What Do Clients Say About Us?</p>
+                                <h3 className="text-3xl font-bold text-white mb-1">50+</h3>
+                                <p className="text-gray-400 text-sm">Industries Served</p>
                             </div>
-                        </div>
-                        <div className="p-4 flex items-center justify-between">
-                            <span className="text-gray-400 text-sm">Watch client stories</span>
-                            <span className="text-gray-500 text-sm flex items-center gap-1">
-                                <Clock className="w-4 h-4" />
-                                3:08
-                            </span>
+
+                            {/* Stat Card 3 - Revenue (Full Width) */}
+                            <div className="col-span-2 bg-[#272727]/80 backdrop-blur-md rounded-2xl p-6 border border-white/5 mt-4 flex items-center justify-between transform hover:-translate-y-1 transition-transform duration-300">
+                                <div>
+                                    <h3 className="text-3xl font-bold text-white mb-1">$100M+</h3>
+                                    <p className="text-gray-400 text-sm">Revenue Generated</p>
+                                </div>
+                                <div className="w-12 h-12 rounded-full bg-[#AD8253] flex items-center justify-center">
+                                    <Target className="w-6 h-6 text-white" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
