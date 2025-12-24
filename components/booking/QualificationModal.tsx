@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ArrowRight, ArrowLeft, CheckCircle2, Calendar, Loader2, Video, ExternalLink } from 'lucide-react'
 import { CalendarPicker } from './CalendarPicker'
@@ -58,6 +59,11 @@ export function QualificationModal({ isOpen, onClose, source }: QualificationMod
         growthGoal: '',
         budgetTier: '',
     })
+    const [mounted, setMounted] = useState(false)
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
 
     // Lock body scroll when modal is open
     useEffect(() => {
@@ -183,7 +189,9 @@ export function QualificationModal({ isOpen, onClose, source }: QualificationMod
         exit: { opacity: 0, x: -20 },
     }
 
-    return (
+    if (!mounted) return null
+
+    return createPortal(
         <AnimatePresence>
             {isOpen && (
                 <>
@@ -193,7 +201,7 @@ export function QualificationModal({ isOpen, onClose, source }: QualificationMod
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={handleClose}
-                        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[9999]"
+                        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[99999]"
                     />
 
                     {/* Modal */}
@@ -202,10 +210,10 @@ export function QualificationModal({ isOpen, onClose, source }: QualificationMod
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}
                         transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                        className="fixed inset-0 z-[10000] flex items-center justify-center p-4"
+                        className="fixed inset-0 z-[100000] flex items-center justify-center p-4 min-h-screen"
                     >
                         <div
-                            className="bg-[#272727] rounded-2xl border border-[#AD8253]/30 w-full max-w-lg max-h-[90vh] overflow-hidden shadow-2xl flex flex-col"
+                            className="bg-[#272727] rounded-2xl border border-[#AD8253]/30 w-full max-w-lg max-h-[90vh] overflow-hidden shadow-2xl flex flex-col relative"
                             onClick={(e) => e.stopPropagation()}
                             onWheel={(e) => e.stopPropagation()}
                         >
@@ -582,6 +590,7 @@ export function QualificationModal({ isOpen, onClose, source }: QualificationMod
                     </motion.div>
                 </>
             )}
-        </AnimatePresence>
+        </AnimatePresence>,
+        document.body
     )
 }
