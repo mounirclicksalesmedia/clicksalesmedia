@@ -28,6 +28,12 @@ import {
 // Flagship Services (The "New Way") - Top Grid (6 Items)
 const flagshipServices = [
     {
+        name: "Growth Engineering",
+        href: "/growth-engineering",
+        description: "AI-powered growth engine for predictable, scalable revenue.",
+        icon: Rocket
+    },
+    {
         name: "Alpha Lead Gen 2.0",
         href: "/services/alpha-lead-gen",
         description: "Our proprietary AI-driven lead generation engine.",
