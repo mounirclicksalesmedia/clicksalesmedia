@@ -67,10 +67,14 @@ const budgetLabels: Record<string, string> = {
 }
 
 const goalLabels: Record<string, string> = {
-    SCALE_REVENUE: 'Scale Revenue',
-    BRAND_AWARENESS: 'Brand Awareness',
-    FIX_ROI: 'Fix ROI',
-    FULL_DIGITAL_TRANSFORMATION: 'Digital Transformation',
+    GROWTH_ENGINEERING: 'Growth Engineering',
+    LEAD_GENERATION: 'Lead Generation',
+    AI_AGENT_SYSTEMS: 'AI Agent Systems',
+    PROGRAMMATIC_SEO: 'Programmatic SEO',
+    COLD_EMAIL_SYSTEM: 'Cold Email System',
+    WHATSAPP_AGENTS: 'WhatsApp Agents',
+    PERFORMANCE_MARKETING: 'Performance Marketing',
+    ADS_ENGINEERING: 'Ads Engineering',
 }
 
 export default function LeadsPage() {

@@ -25,10 +25,14 @@ interface FormData {
 }
 
 const growthGoals = [
-    { value: 'SCALE_REVENUE', label: 'Scale Revenue', description: 'Increase sales and revenue' },
-    { value: 'BRAND_AWARENESS', label: 'Brand Awareness', description: 'Build brand recognition' },
-    { value: 'FIX_ROI', label: 'Fix ROI', description: 'Improve marketing returns' },
-    { value: 'FULL_DIGITAL_TRANSFORMATION', label: 'Digital Transformation', description: 'Complete digital overhaul' },
+    { value: 'GROWTH_ENGINEERING', label: 'Growth Engineering Systems', description: 'Revenue growth automation & systems' },
+    { value: 'LEAD_GENERATION', label: 'Lead Generation', description: 'Qualified lead acquisition systems' },
+    { value: 'AI_AGENT_SYSTEMS', label: 'AI Agent Systems', description: 'AI-powered automation & chatbots' },
+    { value: 'PROGRAMMATIC_SEO', label: 'Programmatic SEO', description: 'Scalable SEO & content systems' },
+    { value: 'COLD_EMAIL_SYSTEM', label: 'Cold Email System', description: 'Outbound email automation' },
+    { value: 'WHATSAPP_AGENTS', label: 'WhatsApp Agents System', description: 'WhatsApp automation & bots' },
+    { value: 'PERFORMANCE_MARKETING', label: 'Performance Marketing', description: 'ROI-focused paid campaigns' },
+    { value: 'ADS_ENGINEERING', label: 'Ads Engineering & Systems', description: 'Advanced ad tech & optimization' },
 ]
 
 const budgetTiers = [

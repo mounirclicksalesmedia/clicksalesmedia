@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
 import { sendNewLeadNotification } from '@/lib/email'
-import { BudgetTier, GrowthGoal } from '@prisma/client'
+import { BudgetTier } from '@prisma/client'
 
 // Qualification threshold: $2k+ budget
 const QUALIFIED_BUDGETS: BudgetTier[] = [
@@ -24,14 +24,7 @@ export async function POST(request: NextRequest) {
             )
         }
 
-        // Validate enums
-        if (!Object.values(GrowthGoal).includes(growthGoal)) {
-            return NextResponse.json(
-                { error: 'Invalid growth goal' },
-                { status: 400 }
-            )
-        }
-
+        // Validate budget tier enum
         if (!Object.values(BudgetTier).includes(budgetTier)) {
             return NextResponse.json(
                 { error: 'Invalid budget tier' },

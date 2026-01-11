@@ -98,7 +98,7 @@ model Lead {
   phone       String?
   company     String?
   website     String?
-  growthGoal  GrowthGoal
+  growthGoal  String
   budgetTier  BudgetTier
   status      LeadStatus @default(NEW)
   isQualified Boolean    @default(false)
@@ -163,12 +163,6 @@ enum BudgetTier {
   ABOVE_50K
 }
 
-enum GrowthGoal {
-  SCALE_REVENUE
-  BRAND_AWARENESS
-  FIX_ROI
-  FULL_DIGITAL_TRANSFORMATION
-}
 
 enum MeetingStatus {
   SCHEDULED
