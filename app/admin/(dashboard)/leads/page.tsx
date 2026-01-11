@@ -18,7 +18,9 @@ import {
     ChevronDown,
     Eye,
     X,
-    Loader2
+    Loader2,
+    Video,
+    ExternalLink
 } from 'lucide-react'
 
 interface Lead {
@@ -39,7 +41,10 @@ interface Lead {
     meetings: Array<{
         id: string
         startTime: string
+        endTime: string
         status: string
+        googleMeetLink: string | null
+        timezone: string
     }>
 }
 
@@ -358,30 +363,57 @@ export default function LeadsPage() {
                             {/* Meetings */}
                             {selectedLead.meetings.length > 0 && (
                                 <div>
-                                    <h3 className="text-sm font-medium text-gray-400 mb-3">Meetings</h3>
-                                    <div className="space-y-2">
+                                    <h3 className="text-sm font-medium text-gray-400 mb-3 flex items-center gap-2">
+                                        <Calendar className="w-4 h-4" />
+                                        Scheduled Meetings
+                                    </h3>
+                                    <div className="space-y-3">
                                         {selectedLead.meetings.map((meeting) => (
-                                            <Link
+                                            <div
                                                 key={meeting.id}
-                                                href={`/admin/meetings`}
-                                                className="flex items-center justify-between p-3 bg-[#1a1a1a] rounded-lg hover:border-[#AD8253] border border-transparent transition-colors"
+                                                className="p-4 bg-[#1a1a1a] rounded-xl border border-white/10 space-y-3"
                                             >
-                                                <div className="flex items-center gap-3">
-                                                    <Calendar className="w-4 h-4 text-[#AD8253]" />
-                                                    <span className="text-white">
-                                                        {new Date(meeting.startTime).toLocaleDateString('en-US', {
-                                                            weekday: 'short',
-                                                            month: 'short',
-                                                            day: 'numeric',
-                                                            hour: '2-digit',
-                                                            minute: '2-digit',
-                                                        })}
+                                                <div className="flex items-center justify-between">
+                                                    <div className="flex items-center gap-3">
+                                                        <Calendar className="w-5 h-5 text-[#AD8253]" />
+                                                        <div>
+                                                            <div className="text-white font-medium">
+                                                                {new Date(meeting.startTime).toLocaleDateString('en-US', {
+                                                                    weekday: 'long',
+                                                                    month: 'long',
+                                                                    day: 'numeric',
+                                                                    year: 'numeric',
+                                                                })}
+                                                            </div>
+                                                            <div className="text-sm text-gray-400">
+                                                                {new Date(meeting.startTime).toLocaleTimeString('en-US', {
+                                                                    hour: '2-digit',
+                                                                    minute: '2-digit',
+                                                                })} - {new Date(meeting.endTime).toLocaleTimeString('en-US', {
+                                                                    hour: '2-digit',
+                                                                    minute: '2-digit',
+                                                                })} ({meeting.timezone})
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <span className={`px-2.5 py-1 rounded-full text-xs font-medium ${statusColors[meeting.status] || 'bg-gray-500/20 text-gray-400'}`}>
+                                                        {meeting.status}
                                                     </span>
                                                 </div>
-                                                <span className={`px-2 py-0.5 rounded-full text-xs ${statusColors[meeting.status] || 'bg-gray-500/20 text-gray-400'}`}>
-                                                    {meeting.status}
-                                                </span>
-                                            </Link>
+
+                                                {meeting.googleMeetLink && (
+                                                    <a
+                                                        href={meeting.googleMeetLink}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="flex items-center gap-2 px-4 py-2.5 bg-[#AD8253] hover:bg-[#c3a177] text-white rounded-lg transition-colors w-fit"
+                                                    >
+                                                        <Video className="w-4 h-4" />
+                                                        <span className="font-medium">Join Google Meet</span>
+                                                        <ExternalLink className="w-3 h-3" />
+                                                    </a>
+                                                )}
+                                            </div>
                                         ))}
                                     </div>
                                 </div>

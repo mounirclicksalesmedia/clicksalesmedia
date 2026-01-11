@@ -8,7 +8,7 @@ const url = require('url');
 
 const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
-const REDIRECT_URI = 'http://localhost:3000/api/auth/google/callback';
+const REDIRECT_URI = 'http://localhost:3000';
 const SCOPES = [
     'https://www.googleapis.com/auth/calendar',
     'https://www.googleapis.com/auth/calendar.events'
@@ -31,7 +31,8 @@ console.log('2. After authorizing, you will be redirected back here.\n');
 const server = http.createServer(async (req, res) => {
     const parsedUrl = url.parse(req.url, true);
 
-    if (parsedUrl.pathname === '/api/auth/google/callback') {
+    // Check for callback on root path since we changed REDIRECT_URI
+    if (parsedUrl.pathname === '/' || parsedUrl.pathname === '/api/auth/google/callback') {
         const code = parsedUrl.query.code;
 
         if (code) {

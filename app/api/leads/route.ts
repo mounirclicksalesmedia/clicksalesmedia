@@ -114,7 +114,15 @@ export async function GET(request: NextRequest) {
                 include: {
                     meetings: {
                         orderBy: { startTime: 'desc' },
-                        take: 1,
+                        take: 5,
+                        select: {
+                            id: true,
+                            startTime: true,
+                            endTime: true,
+                            status: true,
+                            googleMeetLink: true,
+                            timezone: true,
+                        },
                     },
                 },
             }),
