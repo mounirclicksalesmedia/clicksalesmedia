@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Calendar, ArrowRight, Sparkles } from 'lucide-react'
 import { QualificationModal } from './QualificationModal'
+import { trackButtonClick, trackModalOpen } from '@/lib/gtag'
 
 interface BookingButtonProps {
     variant?: 'primary' | 'secondary' | 'outline'
@@ -42,7 +43,11 @@ export function BookingButton({
     return (
         <>
             <motion.button
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => {
+                    trackButtonClick(text, source)
+                    trackModalOpen('QualificationModal', source)
+                    setIsModalOpen(true)
+                }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className={`

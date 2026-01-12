@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ArrowRight, ArrowLeft, CheckCircle2, Calendar, Loader2, Video, ExternalLink } from 'lucide-react'
 import { CalendarPicker } from './CalendarPicker'
+import { trackFormStep, trackFormSubmit, trackLeadQualified, trackMeetingBooked } from '@/lib/gtag'
 
 interface QualificationModalProps {
     isOpen: boolean
@@ -120,6 +121,10 @@ export function QualificationModal({ isOpen, onClose, source }: QualificationMod
                 setLeadId(data.leadId)
                 setIsQualified(data.qualified)
 
+                // Track form submission and lead qualification
+                trackFormSubmit('QualificationModal')
+                trackLeadQualified(formData.budgetTier, formData.growthGoal)
+
                 if (data.qualified) {
                     setStep('calendar')
                 } else {
@@ -158,6 +163,8 @@ export function QualificationModal({ isOpen, onClose, source }: QualificationMod
                     formattedDate: data.formattedDate,
                     formattedTime: data.formattedTime,
                 })
+                // Track meeting booked conversion
+                trackMeetingBooked(source)
                 setStep('confirmation')
             }
         } catch (error) {
